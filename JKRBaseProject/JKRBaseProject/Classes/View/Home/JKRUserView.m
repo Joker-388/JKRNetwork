@@ -63,4 +63,8 @@
     return _genderLabel;
 }
 
+- (void)dealloc {
+    NSLog(@"View dealloc");
+}
+
 @end

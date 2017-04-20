@@ -78,7 +78,6 @@
 }
 
 - (NSDictionary *)parametersForApiManager:(__kindof JKRAPIManager *)manager {
-//    return @{PARAMETERS_LOGINAPI_USERNAME_KEY:@"joker", PARAMETERS_LOGINAPI_PASSWORD_KEY:@"qq123456", PARAMETERS_LOGINAPI_USERTYPE_KEY:@"consumer"};
     if (manager == self.registerAPI) {
         return @{@"username":self.textField.text, @"password":@"qq123456", @"user_type":@"consumer"};
     } else if (manager == self.loginAPI) {
@@ -170,6 +169,10 @@
         _userAPI.parametersSource = self;
     }
     return _userAPI;
+}
+
+- (void)dealloc {
+    NSLog(@"Controller dealloc");
 }
 
 @end

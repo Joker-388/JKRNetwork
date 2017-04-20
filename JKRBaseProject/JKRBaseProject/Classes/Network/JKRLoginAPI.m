@@ -10,14 +10,17 @@
 
 @implementation JKRLoginAPI
 
+/// url
 - (NSString *)apiUrl {
     return @"http://www.newqsy.com/easyprint/api/login";
 }
 
+/// 请求方式
 - (JKRRequestType)apiRequestType {
     return JKRRequestTypePost;
 }
 
+/// 请求结果验证
 - (BOOL)apiIsCorrentCallBackDataAfterResponse:(JKRURLResponse *)response {
     if (response.content == nil) {
         return NO;
@@ -36,6 +39,10 @@
         return YES;
     }
     return YES;
+}
+
+- (void)dealloc {
+    NSLog(@"JKRLoginAPI dealloc");
 }
 
 @end

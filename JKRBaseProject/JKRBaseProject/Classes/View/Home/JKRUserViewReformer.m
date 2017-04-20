@@ -24,4 +24,8 @@ NSString *const kUserGender = @"kUserGender";
     return [resultData mutableCopy];
 }
 
+- (void)dealloc {
+    NSLog(@"Reformer dealloc");
+}
+
 @end

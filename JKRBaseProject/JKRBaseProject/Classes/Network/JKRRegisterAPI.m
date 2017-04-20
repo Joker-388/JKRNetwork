@@ -10,20 +10,27 @@
 
 @implementation JKRRegisterAPI
 
+/// url
 - (NSString *)apiUrl {
     return @"http://www.newqsy.com/easyprint/api/register";
 }
 
+/// 请求方式
 - (JKRRequestType)apiRequestType {
     return JKRRequestTypePost;
 }
 
+/// 请求参数验证
 - (BOOL)apiIsCorrectParametersBeforeRequest:(NSDictionary *)parameters {
     NSString *name = parameters[@"username"];
     if (name.length <= 1) {
         return NO;
     }
     return YES;
+}
+
+- (void)dealloc {
+    NSLog(@"JKRRegisterAPI dealloc");
 }
 
 @end
