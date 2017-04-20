@@ -1,0 +1,770 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8991E5064766142D8BC88C1 /* libPods-JKRBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */; };
+		F32534C11EA62ECE00852E5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534C01EA62ECE00852E5A /* main.m */; };
+		F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534C31EA62ECE00852E5A /* AppDelegate.m */; };
+		F32534CC1EA62ECE00852E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32534CB1EA62ECE00852E5A /* Assets.xcassets */; };
+		F32534CF1EA62ECE00852E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32534CD1EA62ECE00852E5A /* LaunchScreen.storyboard */; };
+		F32534DA1EA62ECE00852E5A /* JKRBaseProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534D91EA62ECE00852E5A /* JKRBaseProjectTests.m */; };
+		F32534E51EA62ECE00852E5A /* JKRBaseProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534E41EA62ECE00852E5A /* JKRBaseProjectUITests.m */; };
+		F325350E1EA7054800852E5A /* AppDelegate+JKRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F325350D1EA7054800852E5A /* AppDelegate+JKRRootViewController.m */; };
+		F32535111EA7057200852E5A /* JKRTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32535101EA7057200852E5A /* JKRTabBarViewController.m */; };
+		F32535141EA705A800852E5A /* JKRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32535131EA705A800852E5A /* JKRNavigationController.m */; };
+		F32535171EA705C600852E5A /* UITabBarController+JKRChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32535161EA705C600852E5A /* UITabBarController+JKRChildViewController.m */; };
+		F325351D1EA705F700852E5A /* JKRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F325351C1EA705F700852E5A /* JKRHomeViewController.m */; };
+		F32535201EA705FD00852E5A /* JKRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F325351F1EA705FD00852E5A /* JKRMeViewController.m */; };
+		F32535241EA70B5200852E5A /* UIColor+JKRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F32535231EA70B5200852E5A /* UIColor+JKRColor.m */; };
+		F32BF51B1EA76B3F00D7FCBC /* JKRLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF51A1EA76B3F00D7FCBC /* JKRLoginAPI.m */; };
+		F32BF5231EA860A100D7FCBC /* JKRRegisterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF5221EA860A100D7FCBC /* JKRRegisterAPI.m */; };
+		F32BF5261EA8667F00D7FCBC /* JKRUserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF5251EA8667F00D7FCBC /* JKRUserAPI.m */; };
+		F32BF56F1EA8A3D000D7FCBC /* JKRAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */; };
+		F32BF5701EA8A3D000D7FCBC /* JKRAPITerminal.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF56C1EA8A3D000D7FCBC /* JKRAPITerminal.m */; };
+		F32BF5711EA8A3D000D7FCBC /* JKRURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF56E1EA8A3D000D7FCBC /* JKRURLResponse.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F32534D61EA62ECE00852E5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F32534B41EA62ECE00852E5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F32534BB1EA62ECE00852E5A;
+			remoteInfo = JKRBaseProject;
+		};
+		F32534E11EA62ECE00852E5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F32534B41EA62ECE00852E5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F32534BB1EA62ECE00852E5A;
+			remoteInfo = JKRBaseProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10406D853B61B89AE93625BC /* Pods-JKRBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.release.xcconfig"; sourceTree = "<group>"; };
+		1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKRBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C477A275E635DC370847DF /* Pods-JKRBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		F32534BC1EA62ECE00852E5A /* JKRBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKRBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32534C01EA62ECE00852E5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F32534C21EA62ECE00852E5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F32534C31EA62ECE00852E5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F32534CB1EA62ECE00852E5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F32534CE1EA62ECE00852E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F32534D01EA62ECE00852E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F32534D51EA62ECE00852E5A /* JKRBaseProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKRBaseProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32534D91EA62ECE00852E5A /* JKRBaseProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBaseProjectTests.m; sourceTree = "<group>"; };
+		F32534DB1EA62ECE00852E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F32534E01EA62ECE00852E5A /* JKRBaseProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKRBaseProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32534E41EA62ECE00852E5A /* JKRBaseProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBaseProjectUITests.m; sourceTree = "<group>"; };
+		F32534E61EA62ECE00852E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F325350C1EA7054800852E5A /* AppDelegate+JKRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JKRRootViewController.h"; sourceTree = "<group>"; };
+		F325350D1EA7054800852E5A /* AppDelegate+JKRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JKRRootViewController.m"; sourceTree = "<group>"; };
+		F325350F1EA7057200852E5A /* JKRTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRTabBarViewController.h; sourceTree = "<group>"; };
+		F32535101EA7057200852E5A /* JKRTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRTabBarViewController.m; sourceTree = "<group>"; };
+		F32535121EA705A800852E5A /* JKRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRNavigationController.h; sourceTree = "<group>"; };
+		F32535131EA705A800852E5A /* JKRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRNavigationController.m; sourceTree = "<group>"; };
+		F32535151EA705C600852E5A /* UITabBarController+JKRChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+JKRChildViewController.h"; sourceTree = "<group>"; };
+		F32535161EA705C600852E5A /* UITabBarController+JKRChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+JKRChildViewController.m"; sourceTree = "<group>"; };
+		F325351B1EA705F700852E5A /* JKRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRHomeViewController.h; sourceTree = "<group>"; };
+		F325351C1EA705F700852E5A /* JKRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRHomeViewController.m; sourceTree = "<group>"; };
+		F325351E1EA705FD00852E5A /* JKRMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRMeViewController.h; sourceTree = "<group>"; };
+		F325351F1EA705FD00852E5A /* JKRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRMeViewController.m; sourceTree = "<group>"; };
+		F32535211EA70B0C00852E5A /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		F32535221EA70B5200852E5A /* UIColor+JKRColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JKRColor.h"; sourceTree = "<group>"; };
+		F32535231EA70B5200852E5A /* UIColor+JKRColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JKRColor.m"; sourceTree = "<group>"; };
+		F32BF5191EA76B3F00D7FCBC /* JKRLoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRLoginAPI.h; sourceTree = "<group>"; };
+		F32BF51A1EA76B3F00D7FCBC /* JKRLoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRLoginAPI.m; sourceTree = "<group>"; };
+		F32BF5211EA860A100D7FCBC /* JKRRegisterAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRRegisterAPI.h; sourceTree = "<group>"; };
+		F32BF5221EA860A100D7FCBC /* JKRRegisterAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRRegisterAPI.m; sourceTree = "<group>"; };
+		F32BF5241EA8667F00D7FCBC /* JKRUserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRUserAPI.h; sourceTree = "<group>"; };
+		F32BF5251EA8667F00D7FCBC /* JKRUserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRUserAPI.m; sourceTree = "<group>"; };
+		F32BF5681EA8A3D000D7FCBC /* JKRAPIHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPIHeader.h; sourceTree = "<group>"; };
+		F32BF5691EA8A3D000D7FCBC /* JKRAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPIManager.h; sourceTree = "<group>"; };
+		F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPIManager.m; sourceTree = "<group>"; };
+		F32BF56B1EA8A3D000D7FCBC /* JKRAPITerminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPITerminal.h; sourceTree = "<group>"; };
+		F32BF56C1EA8A3D000D7FCBC /* JKRAPITerminal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPITerminal.m; sourceTree = "<group>"; };
+		F32BF56D1EA8A3D000D7FCBC /* JKRURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRURLResponse.h; sourceTree = "<group>"; };
+		F32BF56E1EA8A3D000D7FCBC /* JKRURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRURLResponse.m; sourceTree = "<group>"; };
+		F32BF5721EA8A42F00D7FCBC /* JKRAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRAPI.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F32534B91EA62ECE00852E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8991E5064766142D8BC88C1 /* libPods-JKRBaseProject.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32534D21EA62ECE00852E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32534DD1EA62ECE00852E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A9CB2CD9F57288ABA2A9419 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A41D9570B5BD29A804562055 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84C477A275E635DC370847DF /* Pods-JKRBaseProject.debug.xcconfig */,
+				10406D853B61B89AE93625BC /* Pods-JKRBaseProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F32534B31EA62ECE00852E5A = {
+			isa = PBXGroup;
+			children = (
+				F32534BE1EA62ECE00852E5A /* JKRBaseProject */,
+				F32534D81EA62ECE00852E5A /* JKRBaseProjectTests */,
+				F32534E31EA62ECE00852E5A /* JKRBaseProjectUITests */,
+				F32534BD1EA62ECE00852E5A /* Products */,
+				A41D9570B5BD29A804562055 /* Pods */,
+				8A9CB2CD9F57288ABA2A9419 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F32534BD1EA62ECE00852E5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F32534BC1EA62ECE00852E5A /* JKRBaseProject.app */,
+				F32534D51EA62ECE00852E5A /* JKRBaseProjectTests.xctest */,
+				F32534E01EA62ECE00852E5A /* JKRBaseProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F32534BE1EA62ECE00852E5A /* JKRBaseProject */ = {
+			isa = PBXGroup;
+			children = (
+				F32535211EA70B0C00852E5A /* Header.h */,
+				F32534C21EA62ECE00852E5A /* AppDelegate.h */,
+				F32534C31EA62ECE00852E5A /* AppDelegate.m */,
+				F32535021EA7051600852E5A /* Classes */,
+				F32534CB1EA62ECE00852E5A /* Assets.xcassets */,
+				F32534CD1EA62ECE00852E5A /* LaunchScreen.storyboard */,
+				F32534D01EA62ECE00852E5A /* Info.plist */,
+				F32534BF1EA62ECE00852E5A /* Supporting Files */,
+			);
+			path = JKRBaseProject;
+			sourceTree = "<group>";
+		};
+		F32534BF1EA62ECE00852E5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F32534C01EA62ECE00852E5A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F32534D81EA62ECE00852E5A /* JKRBaseProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				F32534D91EA62ECE00852E5A /* JKRBaseProjectTests.m */,
+				F32534DB1EA62ECE00852E5A /* Info.plist */,
+			);
+			path = JKRBaseProjectTests;
+			sourceTree = "<group>";
+		};
+		F32534E31EA62ECE00852E5A /* JKRBaseProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F32534E41EA62ECE00852E5A /* JKRBaseProjectUITests.m */,
+				F32534E61EA62ECE00852E5A /* Info.plist */,
+			);
+			path = JKRBaseProjectUITests;
+			sourceTree = "<group>";
+		};
+		F32535021EA7051600852E5A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F32535081EA7051600852E5A /* View */,
+				F32535051EA7051600852E5A /* Network */,
+				F32535041EA7051600852E5A /* Data */,
+				F32535031EA7051600852E5A /* Category */,
+				F32535061EA7051600852E5A /* Resource */,
+				F32535071EA7051600852E5A /* Tool */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F32535031EA7051600852E5A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F32535221EA70B5200852E5A /* UIColor+JKRColor.h */,
+				F32535231EA70B5200852E5A /* UIColor+JKRColor.m */,
+				F325350C1EA7054800852E5A /* AppDelegate+JKRRootViewController.h */,
+				F325350D1EA7054800852E5A /* AppDelegate+JKRRootViewController.m */,
+				F32535151EA705C600852E5A /* UITabBarController+JKRChildViewController.h */,
+				F32535161EA705C600852E5A /* UITabBarController+JKRChildViewController.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F32535041EA7051600852E5A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F32535051EA7051600852E5A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F32BF5661EA8A3D000D7FCBC /* JKRAPIManager */,
+				F32BF5191EA76B3F00D7FCBC /* JKRLoginAPI.h */,
+				F32BF51A1EA76B3F00D7FCBC /* JKRLoginAPI.m */,
+				F32BF5211EA860A100D7FCBC /* JKRRegisterAPI.h */,
+				F32BF5221EA860A100D7FCBC /* JKRRegisterAPI.m */,
+				F32BF5241EA8667F00D7FCBC /* JKRUserAPI.h */,
+				F32BF5251EA8667F00D7FCBC /* JKRUserAPI.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F32535061EA7051600852E5A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F32535071EA7051600852E5A /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		F32535081EA7051600852E5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F325350A1EA7051600852E5A /* Main */,
+				F32535091EA7051600852E5A /* Home */,
+				F325350B1EA7051600852E5A /* Me */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F32535091EA7051600852E5A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F325351B1EA705F700852E5A /* JKRHomeViewController.h */,
+				F325351C1EA705F700852E5A /* JKRHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F325350A1EA7051600852E5A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F325350F1EA7057200852E5A /* JKRTabBarViewController.h */,
+				F32535101EA7057200852E5A /* JKRTabBarViewController.m */,
+				F32535121EA705A800852E5A /* JKRNavigationController.h */,
+				F32535131EA705A800852E5A /* JKRNavigationController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F325350B1EA7051600852E5A /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				F325351E1EA705FD00852E5A /* JKRMeViewController.h */,
+				F325351F1EA705FD00852E5A /* JKRMeViewController.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		F32BF5661EA8A3D000D7FCBC /* JKRAPIManager */ = {
+			isa = PBXGroup;
+			children = (
+				F32BF5721EA8A42F00D7FCBC /* JKRAPI.h */,
+				F32BF5681EA8A3D000D7FCBC /* JKRAPIHeader.h */,
+				F32BF56D1EA8A3D000D7FCBC /* JKRURLResponse.h */,
+				F32BF56E1EA8A3D000D7FCBC /* JKRURLResponse.m */,
+				F32BF56B1EA8A3D000D7FCBC /* JKRAPITerminal.h */,
+				F32BF56C1EA8A3D000D7FCBC /* JKRAPITerminal.m */,
+				F32BF5691EA8A3D000D7FCBC /* JKRAPIManager.h */,
+				F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */,
+			);
+			path = JKRAPIManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F32534BB1EA62ECE00852E5A /* JKRBaseProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32534E91EA62ECE00852E5A /* Build configuration list for PBXNativeTarget "JKRBaseProject" */;
+			buildPhases = (
+				9AAC25F996C9509BC0874102 /* [CP] Check Pods Manifest.lock */,
+				F32534B81EA62ECE00852E5A /* Sources */,
+				F32534B91EA62ECE00852E5A /* Frameworks */,
+				F32534BA1EA62ECE00852E5A /* Resources */,
+				C356A422CF1F0E99BC40A136 /* [CP] Embed Pods Frameworks */,
+				13FB98F534B610EC680B51A1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKRBaseProject;
+			productName = JKRBaseProject;
+			productReference = F32534BC1EA62ECE00852E5A /* JKRBaseProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F32534D41EA62ECE00852E5A /* JKRBaseProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32534EC1EA62ECE00852E5A /* Build configuration list for PBXNativeTarget "JKRBaseProjectTests" */;
+			buildPhases = (
+				F32534D11EA62ECE00852E5A /* Sources */,
+				F32534D21EA62ECE00852E5A /* Frameworks */,
+				F32534D31EA62ECE00852E5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F32534D71EA62ECE00852E5A /* PBXTargetDependency */,
+			);
+			name = JKRBaseProjectTests;
+			productName = JKRBaseProjectTests;
+			productReference = F32534D51EA62ECE00852E5A /* JKRBaseProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F32534DF1EA62ECE00852E5A /* JKRBaseProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32534EF1EA62ECE00852E5A /* Build configuration list for PBXNativeTarget "JKRBaseProjectUITests" */;
+			buildPhases = (
+				F32534DC1EA62ECE00852E5A /* Sources */,
+				F32534DD1EA62ECE00852E5A /* Frameworks */,
+				F32534DE1EA62ECE00852E5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F32534E21EA62ECE00852E5A /* PBXTargetDependency */,
+			);
+			name = JKRBaseProjectUITests;
+			productName = JKRBaseProjectUITests;
+			productReference = F32534E01EA62ECE00852E5A /* JKRBaseProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F32534B41EA62ECE00852E5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Joker;
+				TargetAttributes = {
+					F32534BB1EA62ECE00852E5A = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+					};
+					F32534D41EA62ECE00852E5A = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F32534BB1EA62ECE00852E5A;
+					};
+					F32534DF1EA62ECE00852E5A = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F32534BB1EA62ECE00852E5A;
+					};
+				};
+			};
+			buildConfigurationList = F32534B71EA62ECE00852E5A /* Build configuration list for PBXProject "JKRBaseProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F32534B31EA62ECE00852E5A;
+			productRefGroup = F32534BD1EA62ECE00852E5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F32534BB1EA62ECE00852E5A /* JKRBaseProject */,
+				F32534D41EA62ECE00852E5A /* JKRBaseProjectTests */,
+				F32534DF1EA62ECE00852E5A /* JKRBaseProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F32534BA1EA62ECE00852E5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32534CF1EA62ECE00852E5A /* LaunchScreen.storyboard in Resources */,
+				F32534CC1EA62ECE00852E5A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32534D31EA62ECE00852E5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32534DE1EA62ECE00852E5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13FB98F534B610EC680B51A1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AAC25F996C9509BC0874102 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C356A422CF1F0E99BC40A136 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F32534B81EA62ECE00852E5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32535241EA70B5200852E5A /* UIColor+JKRColor.m in Sources */,
+				F32BF5261EA8667F00D7FCBC /* JKRUserAPI.m in Sources */,
+				F32BF5701EA8A3D000D7FCBC /* JKRAPITerminal.m in Sources */,
+				F32535201EA705FD00852E5A /* JKRMeViewController.m in Sources */,
+				F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */,
+				F32535141EA705A800852E5A /* JKRNavigationController.m in Sources */,
+				F32BF5711EA8A3D000D7FCBC /* JKRURLResponse.m in Sources */,
+				F32BF5231EA860A100D7FCBC /* JKRRegisterAPI.m in Sources */,
+				F32BF51B1EA76B3F00D7FCBC /* JKRLoginAPI.m in Sources */,
+				F325351D1EA705F700852E5A /* JKRHomeViewController.m in Sources */,
+				F32BF56F1EA8A3D000D7FCBC /* JKRAPIManager.m in Sources */,
+				F32534C11EA62ECE00852E5A /* main.m in Sources */,
+				F32535111EA7057200852E5A /* JKRTabBarViewController.m in Sources */,
+				F325350E1EA7054800852E5A /* AppDelegate+JKRRootViewController.m in Sources */,
+				F32535171EA705C600852E5A /* UITabBarController+JKRChildViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32534D11EA62ECE00852E5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32534DA1EA62ECE00852E5A /* JKRBaseProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F32534DC1EA62ECE00852E5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32534E51EA62ECE00852E5A /* JKRBaseProjectUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F32534D71EA62ECE00852E5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F32534BB1EA62ECE00852E5A /* JKRBaseProject */;
+			targetProxy = F32534D61EA62ECE00852E5A /* PBXContainerItemProxy */;
+		};
+		F32534E21EA62ECE00852E5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F32534BB1EA62ECE00852E5A /* JKRBaseProject */;
+			targetProxy = F32534E11EA62ECE00852E5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F32534CD1EA62ECE00852E5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F32534CE1EA62ECE00852E5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F32534E71EA62ECE00852E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F32534E81EA62ECE00852E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F32534EA1EA62ECE00852E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C477A275E635DC370847DF /* Pods-JKRBaseProject.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PREFIX_HEADER = JKRBaseProject/Header.h;
+				INFOPLIST_FILE = JKRBaseProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Joker.JKRBaseProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F32534EB1EA62ECE00852E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10406D853B61B89AE93625BC /* Pods-JKRBaseProject.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PREFIX_HEADER = JKRBaseProject/Header.h;
+				INFOPLIST_FILE = JKRBaseProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Joker.JKRBaseProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F32534ED1EA62ECE00852E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JKRBaseProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Joker.JKRBaseProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JKRBaseProject.app/JKRBaseProject";
+			};
+			name = Debug;
+		};
+		F32534EE1EA62ECE00852E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JKRBaseProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Joker.JKRBaseProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JKRBaseProject.app/JKRBaseProject";
+			};
+			name = Release;
+		};
+		F32534F01EA62ECE00852E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JKRBaseProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Joker.JKRBaseProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JKRBaseProject;
+			};
+			name = Debug;
+		};
+		F32534F11EA62ECE00852E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JKRBaseProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Joker.JKRBaseProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JKRBaseProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F32534B71EA62ECE00852E5A /* Build configuration list for PBXProject "JKRBaseProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32534E71EA62ECE00852E5A /* Debug */,
+				F32534E81EA62ECE00852E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F32534E91EA62ECE00852E5A /* Build configuration list for PBXNativeTarget "JKRBaseProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32534EA1EA62ECE00852E5A /* Debug */,
+				F32534EB1EA62ECE00852E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F32534EC1EA62ECE00852E5A /* Build configuration list for PBXNativeTarget "JKRBaseProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32534ED1EA62ECE00852E5A /* Debug */,
+				F32534EE1EA62ECE00852E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F32534EF1EA62ECE00852E5A /* Build configuration list for PBXNativeTarget "JKRBaseProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32534F01EA62ECE00852E5A /* Debug */,
+				F32534F11EA62ECE00852E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F32534B41EA62ECE00852E5A /* Project object */;
+}
