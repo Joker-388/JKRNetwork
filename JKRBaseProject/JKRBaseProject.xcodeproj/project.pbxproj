@@ -236,6 +236,7 @@
 		F32535041EA7051600852E5A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F32BF57E1EA8C4E500D7FCBC /* JKRCatch */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -325,6 +326,13 @@
 				F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */,
 			);
 			path = JKRAPIManager;
+			sourceTree = "<group>";
+		};
+		F32BF57E1EA8C4E500D7FCBC /* JKRCatch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JKRCatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
