@@ -30,6 +30,12 @@
 - (BOOL)apiIsCorrectParametersBeforeRequest:(NSDictionary *)parameters;
 
 /**
+ 如果返回结果验证错误，那么调用apiManagerRequestFailed:
+ */
+/// 检查返回结果是否错误，该回调在网络请求成功接收到数据并处理成JKRURLResponse之后调用
+- (BOOL)apiIsCorrentCallBackDataAfterResponse:(JKRURLResponse *)response;
+
+/**
  请求前再额外添加一些请求参数，如分页数据等
  该回调在apiIsCorrectParametersBeforeRequest:后回调
  */
@@ -95,6 +101,13 @@
 
 @end
 
+
+@protocol JKRAPIManagerDataReformer <NSObject>
+
+- (NSMutableDictionary *)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data;
+
+@end
+
 @interface JKRAPIManager : NSObject
 
 @property (nonatomic, weak) id<JKRAPIManagerCallBackDelegate> delegate;
@@ -105,7 +118,8 @@
 - (JKRRequestID)loadData;
 - (void)cancelRequestWithRequestID:(JKRRequestID)requestID;
 - (void)cancelAllRequests;
-- (NSDictionary *)fetchData;
-- (NSError *)fetchError;
+- (NSMutableDictionary *)fetchOriginalData;
+- (NSMutableDictionary *)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer;
+- (NSError *)fetchOriginalError;
 
 @end

@@ -71,7 +71,15 @@
 
 - (void)loadDataSuccessWithResponse:(JKRURLResponse *)response {
     self.isLoading = NO;
-    [self removeRequestWithID:response.requestID];
+    if ([self.child respondsToSelector:@selector(apiIsCorrentCallBackDataAfterResponse:)]) {
+        if (![self.child apiIsCorrentCallBackDataAfterResponse:response]) {
+            NSError *error = [NSError errorWithDomain:@"ResutNullError" code:NSURLErrorNoPermissionsToReadFile userInfo:@{@"NSErrorFailingURLKey":[self.child apiUrl], @"NSLocalizedDescription":@"result null", @"ErrorParameters":response.content}];
+            self.fetchError = error;
+            self.fetchData = nil;
+            [self.delegate apiManagerRequestFailed:self];
+            return;
+        }
+    }
     self.fetchData = response.content;
     self.fetchError = nil;
     if ([self.child respondsToSelector:@selector(apiIsTokenInvalidAfterResponse:)] && [self.delegate respondsToSelector:@selector(apiManagerRequestTokenInvalid:)] && [self.child apiIsTokenInvalidAfterResponse:self.fetchData]) {
@@ -137,11 +145,21 @@
     return YES;
 }
 
-- (NSDictionary *)fetchData {
-    return _fetchData;
+- (NSMutableDictionary *)fetchOriginalData {
+    return [_fetchData mutableCopy];
 }
 
-- (NSError *)fetchError {
+- (NSMutableDictionary *)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer {
+    id resultData = nil;
+    if ([reformer respondsToSelector:@selector(fetchDataWithManager:reformData:)]) {
+        resultData = [reformer fetchDataWithManager:self reformData:self.fetchData];
+    } else {
+        resultData = [self.fetchData mutableCopy];
+    }
+    return resultData;
+}
+
+- (NSError *)fetchOriginalError {
     return _fetchError;
 }
 

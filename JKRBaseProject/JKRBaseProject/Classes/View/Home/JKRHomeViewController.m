@@ -10,12 +10,15 @@
 #import "JKRRegisterAPI.h"
 #import "JKRLoginAPI.h"
 #import "JKRUserAPI.h"
+#import "JKRUserView.h"
 
 @interface JKRHomeViewController ()<JKRAPIManagerCallBackDelegate, JKRAPIManagerParametersSource>
 
 @property (nonatomic, strong) JKRLoginAPI *loginAPI;
 @property (nonatomic, strong) JKRRegisterAPI *registerAPI;
 @property (nonatomic, strong) JKRUserAPI *userAPI;
+
+@property (nonatomic, strong) JKRUserView *userView;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) NSString *token;
 
@@ -56,6 +59,10 @@
     textField.frame = CGRectMake(10, 250, 100, 40);
     [self.view addSubview:textField];
     self.textField = textField;
+    
+    self.userView = [[JKRUserView alloc] init];
+    self.userView.frame = CGRectMake(10, 300, kScreenWidth - 20, 120);
+    [self.view addSubview:self.userView];
 }
 
 - (void)registerClick {
@@ -84,54 +91,56 @@
 
 - (void)apiManagerRequestSuccess:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
-        NSLog(@"Register Success:%@", [manager fetchData]);
+        NSLog(@"Register Success:%@", [manager fetchOriginalData]);
     } else if (manager == self.loginAPI) {
-        NSLog(@"Login Success:%@", [manager fetchData]);
-        if (![manager.fetchData[@"data"] isKindOfClass:[NSNull class]]) {
-            self.token = manager.fetchData[@"data"][@"token"] ? manager.fetchData[@"data"][@"token"] : @"";
+        NSLog(@"Login Success:%@", [manager fetchOriginalData]);
+        if (![manager.fetchOriginalData[@"data"] isKindOfClass:[NSNull class]]) {
+            self.token = manager.fetchOriginalData[@"data"][@"token"] ? manager.fetchOriginalData[@"data"][@"token"] : @"";
         }
+        NSMutableDictionary *userViewData = [manager fetchDataWithReformer:self.userView.userReformer];
+        [self.userView configWithData:userViewData];
     } else if (manager == self.userAPI) {
-        NSLog(@"Get info Success:%@", [manager fetchData]);
+        NSLog(@"Get info Success:%@", [manager fetchOriginalData]);
     }
 }
 
 - (void)apiManagerRequestFailed:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
-        NSLog(@"Register Failed:%@", [manager fetchError]);
+        NSLog(@"Register Failed:%@", [manager fetchOriginalError]);
     } else if (manager == self.loginAPI) {
-        NSLog(@"Login Failed:%@", [manager fetchError]);
+        NSLog(@"Login Failed:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
-        NSLog(@"Get info Failed:%@", [manager fetchError]);
+        NSLog(@"Get info Failed:%@", [manager fetchOriginalError]);
     }
 }
 
 - (void)apiManagerRequestParametersError:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
-        NSLog(@"Register ParamaterError:%@", [manager fetchError]);
+        NSLog(@"Register ParamaterError:%@", [manager fetchOriginalError]);
     } else if (manager == self.loginAPI) {
-        NSLog(@"Login ParamaterError:%@", [manager fetchError]);
+        NSLog(@"Login ParamaterError:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
-        NSLog(@"Get info ParamaterError:%@", [manager fetchError]);
+        NSLog(@"Get info ParamaterError:%@", [manager fetchOriginalError]);
     }
 }
 
 - (void)apiManagerRequestCancel:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
-        NSLog(@"Register Cancel:%@", [manager fetchError]);
+        NSLog(@"Register Cancel:%@", [manager fetchOriginalError]);
     } else if (manager == self.loginAPI) {
-        NSLog(@"Login Cancel:%@", [manager fetchError]);
+        NSLog(@"Login Cancel:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
-        NSLog(@"Get info Cancel:%@", [manager fetchError]);
+        NSLog(@"Get info Cancel:%@", [manager fetchOriginalError]);
     }
 }
 
 - (void)apiManagerRequestTokenInvalid:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
-        NSLog(@"Register TokenInvalid:%@", [manager fetchError]);
+        NSLog(@"Register TokenInvalid:%@", [manager fetchOriginalError]);
     } else if (manager == self.loginAPI) {
-        NSLog(@"Login TokenInvalid:%@", [manager fetchError]);
+        NSLog(@"Login TokenInvalid:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
-        NSLog(@"Get info TokenInvalid:%@", [manager fetchError]);
+        NSLog(@"Get info TokenInvalid:%@", [manager fetchOriginalError]);
     }
 }
 

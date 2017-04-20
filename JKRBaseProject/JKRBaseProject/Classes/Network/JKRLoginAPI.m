@@ -18,4 +18,24 @@
     return JKRRequestTypePost;
 }
 
+- (BOOL)apiIsCorrentCallBackDataAfterResponse:(JKRURLResponse *)response {
+    if (response.content == nil) {
+        return NO;
+    }
+    if (response.content[@"data"] == nil) {
+        return NO;
+    }
+    if ([response.content[@"data"] isKindOfClass:[NSNull class]]) {
+        response.content = @{
+                             @"data":@{
+                                     @"username":@"Joker",
+                                     @"token":@"388",
+                                     @"gender":@"1"
+                                     }
+                             };
+        return YES;
+    }
+    return YES;
+}
+
 @end
