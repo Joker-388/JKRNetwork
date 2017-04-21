@@ -14,5 +14,10 @@ typedef NS_ENUM(NSUInteger, JKRRequestType) {
     JKRRequestTypeGet = 0,
     JKRRequestTypePost
 };
+typedef NS_ENUM(NSUInteger, JKRApiCacheType) {
+    JKRApiCacheTypeDefault = 0,
+    JKRApiCacheTypeLoadCache,
+    JKRApiCacheTypeNotCache
+};
 
 #endif /* JKRAPIHeader_h */

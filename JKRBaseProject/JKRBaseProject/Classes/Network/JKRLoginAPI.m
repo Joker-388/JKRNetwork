@@ -12,7 +12,7 @@
 
 /// url
 - (NSString *)apiUrl {
-    return @"http://www.newqsy.com/easyprint/api/login";
+    return @"easyprint/api/login";
 }
 
 /// 请求方式

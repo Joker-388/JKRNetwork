@@ -149,6 +149,7 @@
         _loginAPI.parametersSource = self;
         _loginAPI.delegate = self;
         _loginAPI.cancelLoadWhenResend = YES;
+        _loginAPI.cacheType = JKRApiCacheTypeDefault;
     }
     return _loginAPI;
 }

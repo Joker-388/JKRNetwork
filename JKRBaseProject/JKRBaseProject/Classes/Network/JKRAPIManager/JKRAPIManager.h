@@ -114,6 +114,7 @@
 @property (nonatomic, weak) id<JKRAPIManagerParametersSource> parametersSource;
 @property (nonatomic, weak) id<JKRAPIManagerProtocol> child;
 @property (nonatomic, assign, readwrite) BOOL cancelLoadWhenResend;
+@property (nonatomic, assign) JKRApiCacheType cacheType;
 
 - (JKRRequestID)loadData;
 - (void)cancelRequestWithRequestID:(JKRRequestID)requestID;

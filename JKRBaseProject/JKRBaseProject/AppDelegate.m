@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+JKRRootViewController.h"
+#import "JKRAPI.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self jkr_configRootViewController];
+    [JKRAPIConfiguration sharedConfiguration].baseURL = [NSURL URLWithString:@"http://www.newqsy.com/"];
     return YES;
 }
 

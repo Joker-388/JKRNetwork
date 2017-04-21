@@ -30,6 +30,8 @@
 		F32BF5791EA8B5AB00D7FCBC /* JKRUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF5781EA8B5AB00D7FCBC /* JKRUserView.m */; };
 		F32BF57C1EA8B80C00D7FCBC /* JKRUserViewReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF57B1EA8B80C00D7FCBC /* JKRUserViewReformer.m */; };
 		F32BF5811EA8C75C00D7FCBC /* JKRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF5801EA8C75C00D7FCBC /* JKRRootViewController.m */; };
+		F3942E4D1EA9C00800D9D189 /* JKRAPIRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */; };
+		F3942E501EA9C1E300D9D189 /* JKRAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,10 @@
 		F32BF57D1EA8B82600D7FCBC /* JKRUserViewReformerKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUserViewReformerKeys.h; sourceTree = "<group>"; };
 		F32BF57F1EA8C75C00D7FCBC /* JKRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRRootViewController.h; sourceTree = "<group>"; };
 		F32BF5801EA8C75C00D7FCBC /* JKRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRRootViewController.m; sourceTree = "<group>"; };
+		F3942E4B1EA9C00800D9D189 /* JKRAPIRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPIRequestSerializer.h; sourceTree = "<group>"; };
+		F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPIRequestSerializer.m; sourceTree = "<group>"; };
+		F3942E4E1EA9C1E300D9D189 /* JKRAPIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPIConfiguration.h; sourceTree = "<group>"; };
+		F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPIConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +333,10 @@
 				F32BF56E1EA8A3D000D7FCBC /* JKRURLResponse.m */,
 				F32BF56B1EA8A3D000D7FCBC /* JKRAPITerminal.h */,
 				F32BF56C1EA8A3D000D7FCBC /* JKRAPITerminal.m */,
+				F3942E4B1EA9C00800D9D189 /* JKRAPIRequestSerializer.h */,
+				F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */,
+				F3942E4E1EA9C1E300D9D189 /* JKRAPIConfiguration.h */,
+				F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */,
 				F32BF5691EA8A3D000D7FCBC /* JKRAPIManager.h */,
 				F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */,
 			);
@@ -528,8 +538,10 @@
 				F32BF5701EA8A3D000D7FCBC /* JKRAPITerminal.m in Sources */,
 				F32535201EA705FD00852E5A /* JKRMeViewController.m in Sources */,
 				F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */,
+				F3942E501EA9C1E300D9D189 /* JKRAPIConfiguration.m in Sources */,
 				F32535141EA705A800852E5A /* JKRNavigationController.m in Sources */,
 				F32BF5711EA8A3D000D7FCBC /* JKRURLResponse.m in Sources */,
+				F3942E4D1EA9C00800D9D189 /* JKRAPIRequestSerializer.m in Sources */,
 				F32BF5231EA860A100D7FCBC /* JKRRegisterAPI.m in Sources */,
 				F32BF51B1EA76B3F00D7FCBC /* JKRLoginAPI.m in Sources */,
 				F325351D1EA705F700852E5A /* JKRHomeViewController.m in Sources */,

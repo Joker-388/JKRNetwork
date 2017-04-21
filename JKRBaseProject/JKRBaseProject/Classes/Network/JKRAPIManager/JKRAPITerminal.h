@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking.h>
+#import "JKRAPIRequestSerializer.h"
 #import "JKRURLResponse.h"
 #import "JKRAPIHeader.h"
 
@@ -24,6 +24,13 @@ typedef void(^JKRAPICallBack)(JKRURLResponse *response);
                           parameters:(NSDictionary *)parameters
                              success:(JKRAPICallBack)success
                              failure:(JKRAPICallBack)failure;
+//- (JKRRequestID)sendAPIWithURLString:(NSString *)URLString
+//                           cacheType:(JKRApiCacheType)cacheType
+//                                type:(JKRRequestType)type
+//                          parameters:(NSDictionary *)parameters
+//                             success:(JKRAPICallBack)success
+//                             failure:(JKRAPICallBack)failure;
+
 - (void)cancelRequestWithRequestID:(JKRRequestID)requestID;
 
 @end

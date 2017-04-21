@@ -10,5 +10,6 @@
 #define JKRAPI_h
 
 #import "JKRAPIManager.h"
+#import "JKRAPIConfiguration.h"
 
 #endif /* JKRAPI_h */
