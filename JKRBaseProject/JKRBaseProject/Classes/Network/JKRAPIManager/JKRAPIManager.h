@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "JKRAPIHeader.h"
 #import "JKRURLResponse.h"
+
 @class JKRAPIManager;
 
-// 子类必须实现的接口
+/******************************/
+/****** 子类必须实现的接口 *******/
+/******************************/
 @protocol JKRAPIManagerProtocol <NSObject>
 
 @required
@@ -53,7 +56,10 @@
 
 
 
-// API调用者实现的回调协议
+
+/******************************/
+/**** API调用者监听请求状态回调 ***/
+/******************************/
 @protocol JKRAPIManagerCallBackDelegate <NSObject>
 
 @required
@@ -92,7 +98,10 @@
 @end
 
 
-// API调用者实现的请求参数协议
+
+/******************************/
+/*** API调用者提供网络请求参数 ****/
+/******************************/
 @protocol JKRAPIManagerParametersSource <NSObject>
 
 @required
@@ -101,15 +110,18 @@
 
 @end
 
-/**
- 数据加工者需要实现的接口
- */
+
+/******************************/
+/*** 数据加工者需要实现的接口 ******/
+/******************************/
 @protocol JKRAPIManagerDataReformer <NSObject>
 
 /// 加工APIManager的数据为便于使用的特征数据
 - (NSMutableDictionary *)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data;
 
 @end
+
+
 
 @interface JKRAPIManager : NSObject
 

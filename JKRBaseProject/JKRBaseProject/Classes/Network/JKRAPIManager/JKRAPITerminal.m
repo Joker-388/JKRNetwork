@@ -55,33 +55,6 @@
     return dataTask.taskIdentifier;
 }
 
-//- (JKRRequestID)sendAPIWithURLString:(NSString *)URLString cacheType:(JKRApiCacheType)cacheType type:(JKRRequestType)type parameters:(NSDictionary *)parameters success:(JKRAPICallBack)success failure:(JKRAPICallBack)failure {
-//    NSMutableURLRequest *request = [[JKRAPIRequestSerializer sharedSerializer] mutableRequestWithRequestType:type urlString:URLString parameters:parameters];
-//    if (cacheType == JKRApiCacheTypeLoadCache) {
-//        request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-//    } else if (cacheType == JKRApiCacheTypeNotCache) {
-//        request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-//    }
-//    __block NSURLSessionDataTask *dataTask = nil;
-//    __weak typeof(self)weakSelf = self;
-//    dataTask = [self.sessionManager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//        __strong typeof(weakSelf) strongSelf = weakSelf;
-//        [strongSelf requestTableViewRemoveObjectWithIdentifier:dataTask.taskIdentifier];
-//        if (error) {
-//            JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithError:error];
-//            jkr_response.requestID = dataTask.taskIdentifier;
-//            failure ? failure(jkr_response):nil;
-//        } else {
-//            JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithResponse:responseObject];
-//            jkr_response.requestID = dataTask.taskIdentifier;
-//            success ? success(jkr_response):nil;
-//        }
-//    }];
-//    [self.requestTable setValue:dataTask forKey:[NSString stringWithFormat:@"%lu", (unsigned long)dataTask.taskIdentifier]];
-//    [dataTask resume];
-//    return dataTask.taskIdentifier;
-//}
-
 - (void)requestTableViewRemoveObjectWithIdentifier:(JKRRequestID)requestID {
     [self.requestTable removeObjectForKey:[NSString stringWithFormat:@"%lu", requestID]];
 }

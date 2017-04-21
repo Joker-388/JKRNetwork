@@ -32,6 +32,7 @@
 		F32BF5811EA8C75C00D7FCBC /* JKRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BF5801EA8C75C00D7FCBC /* JKRRootViewController.m */; };
 		F3942E4D1EA9C00800D9D189 /* JKRAPIRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */; };
 		F3942E501EA9C1E300D9D189 /* JKRAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */; };
+		F3942E531EAA113600D9D189 /* JKRAPICacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3942E521EAA113600D9D189 /* JKRAPICacheManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPIRequestSerializer.m; sourceTree = "<group>"; };
 		F3942E4E1EA9C1E300D9D189 /* JKRAPIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPIConfiguration.h; sourceTree = "<group>"; };
 		F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPIConfiguration.m; sourceTree = "<group>"; };
+		F3942E511EAA113600D9D189 /* JKRAPICacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPICacheManager.h; sourceTree = "<group>"; };
+		F3942E521EAA113600D9D189 /* JKRAPICacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPICacheManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 				F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */,
 				F3942E4E1EA9C1E300D9D189 /* JKRAPIConfiguration.h */,
 				F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */,
+				F3942E511EAA113600D9D189 /* JKRAPICacheManager.h */,
+				F3942E521EAA113600D9D189 /* JKRAPICacheManager.m */,
 				F32BF5691EA8A3D000D7FCBC /* JKRAPIManager.h */,
 				F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */,
 			);
@@ -537,6 +542,7 @@
 				F32BF5261EA8667F00D7FCBC /* JKRUserAPI.m in Sources */,
 				F32BF5701EA8A3D000D7FCBC /* JKRAPITerminal.m in Sources */,
 				F32535201EA705FD00852E5A /* JKRMeViewController.m in Sources */,
+				F3942E531EAA113600D9D189 /* JKRAPICacheManager.m in Sources */,
 				F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */,
 				F3942E501EA9C1E300D9D189 /* JKRAPIConfiguration.m in Sources */,
 				F32535141EA705A800852E5A /* JKRNavigationController.m in Sources */,

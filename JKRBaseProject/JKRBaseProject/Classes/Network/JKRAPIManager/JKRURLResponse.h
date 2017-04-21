@@ -14,7 +14,9 @@
 @property (nonatomic, strong, readwrite) NSError *error;       ///< 错误信息
 @property (nonatomic, assign) JKRRequestID requestID;          ///< 请求的ID
 
+/// 通过请求接收的数据初始化
 - (instancetype)initWithResponse:(id)response;
+/// 通过请求接收的错误信息初始化
 - (instancetype)initWithError:(NSError *)error;
 
 @end

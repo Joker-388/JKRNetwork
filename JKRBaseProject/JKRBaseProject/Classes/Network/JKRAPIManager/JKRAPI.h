@@ -11,5 +11,6 @@
 
 #import "JKRAPIManager.h"
 #import "JKRAPIConfiguration.h"
+#import "JKRAPICacheManager.h"
 
 #endif /* JKRAPI_h */

@@ -7,7 +7,6 @@
 //
 
 #import "JKRRootViewController.h"
-#import "JKRHomeViewController.h"
 
 @interface JKRRootViewController ()
 

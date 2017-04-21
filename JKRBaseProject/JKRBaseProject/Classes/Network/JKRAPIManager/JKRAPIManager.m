@@ -8,6 +8,7 @@
 
 #import "JKRAPIManager.h"
 #import "JKRAPITerminal.h"
+#import "JKRAPICacheManager.h"
 
 @interface JKRAPIManager ()
 
@@ -56,9 +57,6 @@
     if (![self readyLoadWithParameters:parameters]) return 0;
     if ([self.child respondsToSelector:@selector(apiAppendParameters:)]) {
         parameters = [self.child apiAppendParameters:parameters];
-    }
-    if (self.cacheType) {
-        
     }
     __weak typeof(self) weakSelf = self;
     JKRRequestID requestID = [[JKRAPITerminal sharedTerminal] sendAPIWithURLString:[self.child apiUrl] type:type parameters:parameters success:^(JKRURLResponse * _Nonnull response) {

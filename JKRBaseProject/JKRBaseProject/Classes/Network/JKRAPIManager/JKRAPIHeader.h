@@ -12,26 +12,19 @@
 typedef unsigned long JKRRequestID;
 
 /**
- JKRRequestTypeGet:Get请求
- JKRRequestTypePost:Post请求
  待添加:
- JKRRequestTypeUpload,
- JKRRequestTypeDownload
+ JKRRequestTypeUpload,      ///< 上传请求
+ JKRRequestTypeDownload     ///< 下载请求
  */
 typedef NS_ENUM(NSUInteger, JKRRequestType) {
-    JKRRequestTypeGet = 0,
-    JKRRequestTypePost
+    JKRRequestTypeGet = 0,      ///< Get请求
+    JKRRequestTypePost          ///< Post请求
 };
 
-/**
- JKRApiCacheTypeMemory:临时缓存，数据缓存到内存
- JKRApiCacheTypeDisk:文件缓存，数据持久化到文件
- JKRApiCacheTypeNotCache:不做缓存
- */
 typedef NS_ENUM(NSUInteger, JKRApiCacheType) {
-    JKRApiCacheTypeMemory = 0,
-    JKRApiCacheTypeDisk,
-    JKRApiCacheTypeNotCache
+    JKRApiCacheTypeMemory = 0,   ///< 临时缓存，数据缓存到内存
+    JKRApiCacheTypeDisk,         ///< 文件缓存，数据持久化到文件
+    JKRApiCacheTypeNotCache      ///< 不缓存
 };
 
 #endif /* JKRAPIHeader_h */

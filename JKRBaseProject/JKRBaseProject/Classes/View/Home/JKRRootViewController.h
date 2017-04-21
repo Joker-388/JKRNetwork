@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JKRHomeViewController.h"
 
 @interface JKRRootViewController : UIViewController
 
