@@ -19,6 +19,7 @@ typedef void(^JKRAPICallBack)(JKRURLResponse *response);
 
 + (instancetype)sharedTerminal;
 
+/// 发送一个API请求
 - (JKRRequestID)sendAPIWithURLString:(NSString *)URLString
                               type:(JKRRequestType)type
                           parameters:(NSDictionary *)parameters
@@ -30,7 +31,7 @@ typedef void(^JKRAPICallBack)(JKRURLResponse *response);
 //                          parameters:(NSDictionary *)parameters
 //                             success:(JKRAPICallBack)success
 //                             failure:(JKRAPICallBack)failure;
-
+/// 取消一个API请求
 - (void)cancelRequestWithRequestID:(JKRRequestID)requestID;
 
 @end

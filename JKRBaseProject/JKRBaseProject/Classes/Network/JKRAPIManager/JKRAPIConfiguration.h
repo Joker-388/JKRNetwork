@@ -10,10 +10,10 @@
 
 @interface JKRAPIConfiguration : NSObject
 
-@property (nonatomic, assign) BOOL shouldReachable;
-@property (nonatomic, assign) NSTimeInterval timeOutSeconds;
-@property (nonatomic, assign) NSTimeInterval cacheOutSeconds;
-@property (nonatomic, strong) NSURL *baseURL;
+@property (nonatomic, assign) BOOL shouldReachable;               ///< 是否监听网络状态
+@property (nonatomic, assign) NSTimeInterval timeOutSeconds;      ///< 请求超时时间
+@property (nonatomic, assign) NSTimeInterval cacheOutSeconds;     ///< 缓存失效时间
+@property (nonatomic, strong) NSURL *baseURL;                     ///< 所有API的baseURL
 
 + (instancetype)sharedConfiguration;
 

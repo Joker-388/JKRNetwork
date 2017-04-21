@@ -101,26 +101,35 @@
 
 @end
 
-
+/**
+ 数据加工者需要实现的接口
+ */
 @protocol JKRAPIManagerDataReformer <NSObject>
 
+/// 加工APIManager的数据为便于使用的特征数据
 - (NSMutableDictionary *)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data;
 
 @end
 
 @interface JKRAPIManager : NSObject
 
-@property (nonatomic, weak) id<JKRAPIManagerCallBackDelegate> delegate;
-@property (nonatomic, weak) id<JKRAPIManagerParametersSource> parametersSource;
-@property (nonatomic, weak) id<JKRAPIManagerProtocol> child;
-@property (nonatomic, assign, readwrite) BOOL cancelLoadWhenResend;
-@property (nonatomic, assign) JKRApiCacheType cacheType;
+@property (nonatomic, weak) id<JKRAPIManagerCallBackDelegate> delegate;              ///< API请求状态监听者
+@property (nonatomic, weak) id<JKRAPIManagerParametersSource> parametersSource;      ///< API请求参数提供者
+@property (nonatomic, weak) id<JKRAPIManagerProtocol> child;                         ///< APIManager的子类，自己实现自己的接口
+@property (nonatomic, assign, readwrite) BOOL cancelLoadWhenResend;                  ///< 当前请求未完成的情况下重新请求是否取消当前请求，默认YES
+@property (nonatomic, assign) JKRApiCacheType cacheType;                             ///< API缓存策略，默认临时缓存到内存
 
+/// 开始请求
 - (JKRRequestID)loadData;
+/// 根据请求ID取消请求
 - (void)cancelRequestWithRequestID:(JKRRequestID)requestID;
+/// 取消当前API所有请求
 - (void)cancelAllRequests;
+/// 获取请求原始数据
 - (NSMutableDictionary *)fetchOriginalData;
+/// 获取通过加工条件改良过的数据
 - (NSMutableDictionary *)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer;
+/// 获取请求原始错误信息
 - (NSError *)fetchOriginalError;
 
 @end

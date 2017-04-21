@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JKRAPIRequestSerializer : NSObject
 
 + (instancetype)sharedSerializer;
+/// 根据请求参数生成一个NSURLRequest对象
 - (NSURLRequest *)requestWithRequestType:(JKRRequestType)type urlString:(NSString *)urlString parameters:(nullable NSDictionary *)parameters;
+/// 根据请求参数生成一个NSMutableURLRequest对象
 - (NSMutableURLRequest *)mutableRequestWithRequestType:(JKRRequestType)type urlString:(NSString *)urlString parameters:(nullable NSDictionary *)parameters;
 
 

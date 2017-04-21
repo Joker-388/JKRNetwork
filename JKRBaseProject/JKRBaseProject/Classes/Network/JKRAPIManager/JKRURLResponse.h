@@ -10,9 +10,9 @@
 
 @interface JKRURLResponse : NSObject
 
-@property (nonatomic, copy, readwrite) NSDictionary *content;
-@property (nonatomic, strong, readwrite) NSError *error;
-@property (nonatomic, assign) JKRRequestID requestID;
+@property (nonatomic, copy, readwrite) NSDictionary *content;  ///< 请求到的数据
+@property (nonatomic, strong, readwrite) NSError *error;       ///< 错误信息
+@property (nonatomic, assign) JKRRequestID requestID;          ///< 请求的ID
 
 - (instancetype)initWithResponse:(id)response;
 - (instancetype)initWithError:(NSError *)error;
