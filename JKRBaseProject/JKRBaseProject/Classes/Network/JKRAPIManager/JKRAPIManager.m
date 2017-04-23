@@ -42,6 +42,7 @@
     JKRRequestType requestType = [self.child apiRequestType];
     JKRRequestID requestID = 0;
     requestID = [self sendAPIWithParameters:parameters type:requestType];
+    NSLog(@"[JKRAPIManager] current request count: %zd", self.requestIdList.count);
     return requestID;
 }
 
@@ -80,6 +81,7 @@
 
 - (void)loadDataSuccessWithResponse:(JKRURLResponse *)response {
     self.isLoading = NO;
+    [self removeRequestWithID:response.requestID];
     if ([self.child respondsToSelector:@selector(apiIsCorrentCallBackDataAfterResponse:)]) {
         if (![self.child apiIsCorrentCallBackDataAfterResponse:response]) {
             NSError *error = [NSError errorWithDomain:@"ResutNullError" code:NSURLErrorNoPermissionsToReadFile userInfo:@{@"NSErrorFailingURLKey":[self.child apiUrl], @"NSLocalizedDescription":@"result null", @"ErrorParameters":response.content}];
@@ -108,6 +110,7 @@
     if (self.cachePolicy == JKRApiCachePolicyIgnoreCache) {
         return;
     }
+    NSLog(@"[JKRAPIManager] save cache");
     JKRURLCache *urlCache = [[JKRURLCache alloc] init];
     urlCache.content = self.fetchData;
     urlCache.cacheTime = self.cacheTime;
@@ -128,6 +131,7 @@
                 if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
                     [self.delegate apiManagerRequestSuccess:self];
                 }
+                NSLog(@"[JKRAPIManager] get cache success and not send request");
                 return YES;
             }
         } else if (self.cachePolicy == JKRApiCachePolicyLoadCacheIfExist) {
@@ -136,6 +140,7 @@
             if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
                 [self.delegate apiManagerRequestSuccess:self];
             }
+            NSLog(@"[JKRAPIManager] get cache success and not send request");
             return YES;
         } else {
             if (self.fetchError && self.cachePolicy == JKRApiCachePolicyLoadCacheIfLoadFail) {
@@ -144,6 +149,7 @@
                 if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
                     [self.delegate apiManagerRequestSuccess:self];
                 }
+                NSLog(@"[JKRAPIManager] get cache success and not send failer");
                 return YES;
             }
         }
@@ -161,6 +167,7 @@
     }
     if (response.error.code == NSURLErrorCancelled && [self.delegate respondsToSelector:@selector(apiManagerRequestCancel:)]) {
         [self.delegate apiManagerRequestCancel:self];
+        return;
     } else if ([self.delegate respondsToSelector:@selector(apiManagerRequestFailed:)]) {
         [self.delegate apiManagerRequestFailed:self];
     }

@@ -41,10 +41,12 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf requestTableViewRemoveObjectWithIdentifier:dataTask.taskIdentifier];
         if (error) {
+            NSLog(@"[JKRAPITerminal] request error");
             JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithError:error];
             jkr_response.requestID = dataTask.taskIdentifier;
             failure ? failure(jkr_response):nil;
         } else {
+            NSLog(@"[JKRAPITerminal] request success");
             JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithResponse:responseObject];
             jkr_response.requestID = dataTask.taskIdentifier;
             success ? success(jkr_response):nil;
