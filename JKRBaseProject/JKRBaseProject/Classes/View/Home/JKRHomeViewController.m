@@ -160,6 +160,7 @@
         _registerAPI = [[JKRRegisterAPI alloc] init];
         _registerAPI.delegate = self;
         _registerAPI.parametersSource = self;
+        _registerAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfNotTimeout;
     }
     return _registerAPI;
 }
@@ -169,7 +170,7 @@
         _userAPI = [[JKRUserAPI alloc] init];
         _userAPI.delegate = self;
         _userAPI.parametersSource = self;
-//        _userAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfLoadFail;
+        _userAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfExist;
     }
     return _userAPI;
 }

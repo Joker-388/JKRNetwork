@@ -29,14 +29,7 @@
         return NO;
     }
     if ([response.content[@"data"] isKindOfClass:[NSNull class]]) {
-        response.content = @{
-                             @"data":@{
-                                     @"username":@"Joker",
-                                     @"token":@"388",
-                                     @"gender":@"1"
-                                     }
-                             };
-        return YES;
+        return NO;
     }
     return YES;
 }
