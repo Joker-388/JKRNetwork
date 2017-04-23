@@ -17,6 +17,8 @@
         shareInstance = [[JKRAPIConfiguration alloc] init];
         shareInstance.shouldReachable = YES;
         shareInstance.timeOutSeconds = 20;
+        shareInstance.cacheOutSeconds = 30;
+        shareInstance.cacheCountLimit = 100;
     });
     return shareInstance;
 }

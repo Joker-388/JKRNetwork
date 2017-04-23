@@ -7,23 +7,44 @@
 //
 
 #import "JKRAPICacheManager.h"
+#import "JKRCache.h"
+
+@interface JKRAPICacheManager ()
+
+@property (nonatomic, strong) JKRCache *cache;
+
+@end
 
 @implementation JKRAPICacheManager
 
-- (BOOL)cacheValueWithManager:(JKRAPIManager *)manager {
-    return YES;
++ (instancetype)sharedManager {
+    static JKRAPICacheManager *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[JKRAPICacheManager alloc] init];
+    });
+    return sharedInstance;
 }
 
-- (id)getValueWithManager:(JKRAPIManager *)manager {
+- (void)setCache:(JKRURLCache *)cache forKey:(NSString *)key {
+    [self.cache setObject:cache forKey:key];
+}
+
+- (JKRURLCache *)getCacheForKey:(NSString *)key {
+    id cache = [self.cache objectForKey:key];
+    if ([cache isKindOfClass:[JKRURLCache class]]) {
+        return (JKRURLCache *)[self.cache objectForKey:key];
+    }
     return nil;
 }
 
-//- (BOOL)cacheValue:(id)value forKey:(NSString *)key type:(JKRApiCacheType)type{
-//    return YES;
-//}
-//
-//- (id)getValueForKey:(NSString *)key type:(JKRApiCacheType)type{
-//    return nil;
-//}
+- (JKRCache *)cache {
+    if (!_cache) {
+        _cache = [JKRCache apiCache];
+        _cache.diskCache.costLimit = [JKRAPIConfiguration sharedConfiguration].cacheCountLimit;
+        _cache.memoryCache.costLimit = [JKRAPIConfiguration sharedConfiguration].cacheCountLimit;
+    }
+    return _cache;
+}
 
 @end

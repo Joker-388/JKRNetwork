@@ -21,10 +21,11 @@ typedef NS_ENUM(NSUInteger, JKRRequestType) {
     JKRRequestTypePost          ///< Post请求
 };
 
-typedef NS_ENUM(NSUInteger, JKRApiCacheType) {
-    JKRApiCacheTypeMemory = 0,   ///< 临时缓存，数据缓存到内存
-    JKRApiCacheTypeDisk,         ///< 文件缓存，数据持久化到文件
-    JKRApiCacheTypeNotCache      ///< 不缓存
+typedef NS_ENUM(NSUInteger, JKRApiCachePolicy) {
+    JKRApiCachePolicyIgnoreCache = 0,         ///< 不使用缓存
+    JKRApiCachePolicyLoadCacheIfNotTimeout,   ///< 如果缓存未失效载入缓存
+    JKRApiCachePolicyLoadCacheIfLoadFail,     ///< 如果网络请求失败载入缓存
+    JKRApiCachePolicyLoadCacheIfExist,        ///< 如果缓存存在就载入缓存
 };
 
 #endif /* JKRAPIHeader_h */

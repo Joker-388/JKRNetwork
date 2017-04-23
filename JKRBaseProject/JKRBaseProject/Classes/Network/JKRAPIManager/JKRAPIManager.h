@@ -129,7 +129,7 @@
 @property (nonatomic, weak) id<JKRAPIManagerParametersSource> parametersSource;      ///< API请求参数提供者
 @property (nonatomic, weak) id<JKRAPIManagerProtocol> child;                         ///< APIManager的子类，自己实现自己的接口
 @property (nonatomic, assign, readwrite) BOOL cancelLoadWhenResend;                  ///< 当前请求未完成的情况下重新请求是否取消当前请求，默认YES
-@property (nonatomic, assign) JKRApiCacheType cacheType;                             ///< API缓存策略，默认临时缓存到内存
+@property (nonatomic, assign) JKRApiCachePolicy cachePolicy;                             ///< API缓存策略，默认临时缓存到内存
 
 /// 开始请求
 - (JKRRequestID)loadData;

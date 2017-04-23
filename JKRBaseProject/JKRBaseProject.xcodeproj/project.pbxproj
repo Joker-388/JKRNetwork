@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054AA8B91EAB24EF0045E80E /* JKRAPICacheSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 054AA8B81EAB24EF0045E80E /* JKRAPICacheSerializer.m */; };
+		054AA8BF1EAB2D590045E80E /* JKRURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 054AA8BE1EAB2D590045E80E /* JKRURLCache.m */; };
+		054AA8C51EABAB160045E80E /* JKRCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 054AA8C41EABAB160045E80E /* JKRCache.m */; };
+		054AA8C91EABB3160045E80E /* NSString+JKRTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 054AA8C81EABB3160045E80E /* NSString+JKRTime.m */; };
 		D8991E5064766142D8BC88C1 /* libPods-JKRBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */; };
 		F32534C11EA62ECE00852E5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534C01EA62ECE00852E5A /* main.m */; };
 		F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534C31EA62ECE00852E5A /* AppDelegate.m */; };
@@ -53,6 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054AA8B71EAB24EF0045E80E /* JKRAPICacheSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPICacheSerializer.h; sourceTree = "<group>"; };
+		054AA8B81EAB24EF0045E80E /* JKRAPICacheSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPICacheSerializer.m; sourceTree = "<group>"; };
+		054AA8BD1EAB2D590045E80E /* JKRURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRURLCache.h; sourceTree = "<group>"; };
+		054AA8BE1EAB2D590045E80E /* JKRURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRURLCache.m; sourceTree = "<group>"; };
+		054AA8C31EABAB160045E80E /* JKRCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRCache.h; sourceTree = "<group>"; };
+		054AA8C41EABAB160045E80E /* JKRCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRCache.m; sourceTree = "<group>"; };
+		054AA8C71EABB3160045E80E /* NSString+JKRTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKRTime.h"; sourceTree = "<group>"; };
+		054AA8C81EABB3160045E80E /* NSString+JKRTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKRTime.m"; sourceTree = "<group>"; };
 		10406D853B61B89AE93625BC /* Pods-JKRBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKRBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C477A275E635DC370847DF /* Pods-JKRBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +151,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		054AA8A41EAADE810045E80E /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				F3942E4E1EA9C1E300D9D189 /* JKRAPIConfiguration.h */,
+				F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
+		054AA8A51EAADEC80045E80E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				054AA8A71EAADF210045E80E /* Response */,
+				054AA8A81EAADF2A0045E80E /* Terminal */,
+				054AA8A91EAADF400045E80E /* CacheManager */,
+				054AA8AA1EAADF4B0045E80E /* BaseManager */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		054AA8A61EAADF0D0045E80E /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				054AA8C61EABAE9D0045E80E /* CacheSerializer */,
+				054AA8AB1EAADF640045E80E /* RequestSerializer */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		054AA8A71EAADF210045E80E /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				F32BF56D1EA8A3D000D7FCBC /* JKRURLResponse.h */,
+				F32BF56E1EA8A3D000D7FCBC /* JKRURLResponse.m */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		054AA8A81EAADF2A0045E80E /* Terminal */ = {
+			isa = PBXGroup;
+			children = (
+				F32BF56B1EA8A3D000D7FCBC /* JKRAPITerminal.h */,
+				F32BF56C1EA8A3D000D7FCBC /* JKRAPITerminal.m */,
+			);
+			name = Terminal;
+			sourceTree = "<group>";
+		};
+		054AA8A91EAADF400045E80E /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				F3942E511EAA113600D9D189 /* JKRAPICacheManager.h */,
+				F3942E521EAA113600D9D189 /* JKRAPICacheManager.m */,
+				054AA8BD1EAB2D590045E80E /* JKRURLCache.h */,
+				054AA8BE1EAB2D590045E80E /* JKRURLCache.m */,
+			);
+			name = CacheManager;
+			sourceTree = "<group>";
+		};
+		054AA8AA1EAADF4B0045E80E /* BaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				F32BF5691EA8A3D000D7FCBC /* JKRAPIManager.h */,
+				F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */,
+			);
+			name = BaseManager;
+			sourceTree = "<group>";
+		};
+		054AA8AB1EAADF640045E80E /* RequestSerializer */ = {
+			isa = PBXGroup;
+			children = (
+				F3942E4B1EA9C00800D9D189 /* JKRAPIRequestSerializer.h */,
+				F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */,
+			);
+			name = RequestSerializer;
+			sourceTree = "<group>";
+		};
+		054AA8B21EAAE73D0045E80E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				054AA8B31EAAE73D0045E80E /* JKRCache */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		054AA8B31EAAE73D0045E80E /* JKRCache */ = {
+			isa = PBXGroup;
+			children = (
+				054AA8C31EABAB160045E80E /* JKRCache.h */,
+				054AA8C41EABAB160045E80E /* JKRCache.m */,
+			);
+			path = JKRCache;
+			sourceTree = "<group>";
+		};
+		054AA8C61EABAE9D0045E80E /* CacheSerializer */ = {
+			isa = PBXGroup;
+			children = (
+				054AA8B71EAB24EF0045E80E /* JKRAPICacheSerializer.h */,
+				054AA8B81EAB24EF0045E80E /* JKRAPICacheSerializer.m */,
+			);
+			name = CacheSerializer;
+			sourceTree = "<group>";
+		};
+		054AA8CA1EABB31F0045E80E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				054AA8C71EABB3160045E80E /* NSString+JKRTime.h */,
+				054AA8C81EABB3160045E80E /* NSString+JKRTime.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		8A9CB2CD9F57288ABA2A9419 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +347,7 @@
 			children = (
 				F32535081EA7051600852E5A /* View */,
 				F32535051EA7051600852E5A /* Network */,
-				F32535041EA7051600852E5A /* Data */,
+				054AA8B21EAAE73D0045E80E /* Data */,
 				F32535031EA7051600852E5A /* Category */,
 				F32535061EA7051600852E5A /* Resource */,
 				F32535071EA7051600852E5A /* Tool */,
@@ -243,14 +366,6 @@
 				F32535161EA705C600852E5A /* UITabBarController+JKRChildViewController.m */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		F32535041EA7051600852E5A /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				F32BF57E1EA8C4E500D7FCBC /* JKRCatch */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		F32535051EA7051600852E5A /* Network */ = {
@@ -332,27 +447,12 @@
 			children = (
 				F32BF5721EA8A42F00D7FCBC /* JKRAPI.h */,
 				F32BF5681EA8A3D000D7FCBC /* JKRAPIHeader.h */,
-				F32BF56D1EA8A3D000D7FCBC /* JKRURLResponse.h */,
-				F32BF56E1EA8A3D000D7FCBC /* JKRURLResponse.m */,
-				F32BF56B1EA8A3D000D7FCBC /* JKRAPITerminal.h */,
-				F32BF56C1EA8A3D000D7FCBC /* JKRAPITerminal.m */,
-				F3942E4B1EA9C00800D9D189 /* JKRAPIRequestSerializer.h */,
-				F3942E4C1EA9C00800D9D189 /* JKRAPIRequestSerializer.m */,
-				F3942E4E1EA9C1E300D9D189 /* JKRAPIConfiguration.h */,
-				F3942E4F1EA9C1E300D9D189 /* JKRAPIConfiguration.m */,
-				F3942E511EAA113600D9D189 /* JKRAPICacheManager.h */,
-				F3942E521EAA113600D9D189 /* JKRAPICacheManager.m */,
-				F32BF5691EA8A3D000D7FCBC /* JKRAPIManager.h */,
-				F32BF56A1EA8A3D000D7FCBC /* JKRAPIManager.m */,
+				054AA8A51EAADEC80045E80E /* Components */,
+				054AA8A61EAADF0D0045E80E /* Serialization */,
+				054AA8A41EAADE810045E80E /* Configurations */,
+				054AA8CA1EABB31F0045E80E /* Category */,
 			);
 			path = JKRAPIManager;
-			sourceTree = "<group>";
-		};
-		F32BF57E1EA8C4E500D7FCBC /* JKRCatch */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = JKRCatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,10 +640,13 @@
 			files = (
 				F32535241EA70B5200852E5A /* UIColor+JKRColor.m in Sources */,
 				F32BF5261EA8667F00D7FCBC /* JKRUserAPI.m in Sources */,
+				054AA8C51EABAB160045E80E /* JKRCache.m in Sources */,
 				F32BF5701EA8A3D000D7FCBC /* JKRAPITerminal.m in Sources */,
 				F32535201EA705FD00852E5A /* JKRMeViewController.m in Sources */,
 				F3942E531EAA113600D9D189 /* JKRAPICacheManager.m in Sources */,
 				F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */,
+				054AA8BF1EAB2D590045E80E /* JKRURLCache.m in Sources */,
+				054AA8B91EAB24EF0045E80E /* JKRAPICacheSerializer.m in Sources */,
 				F3942E501EA9C1E300D9D189 /* JKRAPIConfiguration.m in Sources */,
 				F32535141EA705A800852E5A /* JKRNavigationController.m in Sources */,
 				F32BF5711EA8A3D000D7FCBC /* JKRURLResponse.m in Sources */,
@@ -555,6 +658,7 @@
 				F32BF57C1EA8B80C00D7FCBC /* JKRUserViewReformer.m in Sources */,
 				F32534C11EA62ECE00852E5A /* main.m in Sources */,
 				F32535111EA7057200852E5A /* JKRTabBarViewController.m in Sources */,
+				054AA8C91EABB3160045E80E /* NSString+JKRTime.m in Sources */,
 				F325350E1EA7054800852E5A /* AppDelegate+JKRRootViewController.m in Sources */,
 				F32BF5791EA8B5AB00D7FCBC /* JKRUserView.m in Sources */,
 				F32BF5811EA8C75C00D7FCBC /* JKRRootViewController.m in Sources */,

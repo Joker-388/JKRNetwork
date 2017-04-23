@@ -9,6 +9,7 @@
 #import "JKRAPIManager.h"
 #import "JKRAPITerminal.h"
 #import "JKRAPICacheManager.h"
+#import "JKRAPICacheSerializer.h"
 
 @interface JKRAPIManager ()
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong, readwrite) NSError *fetchError;
 @property (nonatomic, strong) NSMutableArray<NSString *> *requestIdList;
 @property (nonatomic, assign, readwrite) BOOL isLoading;
+@property (nonatomic, strong) NSString *cacheKey;
+@property (nonatomic, assign) NSInteger cacheTime;
 
 @end
 
@@ -54,9 +57,14 @@
 }
 
 - (JKRRequestID)sendAPIWithParameters:(NSDictionary *)parameters type:(JKRRequestType)type{
+    self.fetchError = nil;
+    self.fetchData = nil;
     if (![self readyLoadWithParameters:parameters]) return 0;
     if ([self.child respondsToSelector:@selector(apiAppendParameters:)]) {
         parameters = [self.child apiAppendParameters:parameters];
+    }
+    if ([self getCache]) {
+        return 0;
     }
     __weak typeof(self) weakSelf = self;
     JKRRequestID requestID = [[JKRAPITerminal sharedTerminal] sendAPIWithURLString:[self.child apiUrl] type:type parameters:parameters success:^(JKRURLResponse * _Nonnull response) {
@@ -89,8 +97,58 @@
         self.fetchError = error;
         [self.delegate apiManagerRequestTokenInvalid:self];
     } else if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
+        if (self.cachePolicy != JKRApiCachePolicyIgnoreCache) {
+            [self saveCache];
+        }
         [self.delegate apiManagerRequestSuccess:self];
     }
+}
+
+- (void)saveCache {
+    if (self.cachePolicy == JKRApiCachePolicyIgnoreCache) {
+        return;
+    }
+    JKRURLCache *urlCache = [[JKRURLCache alloc] init];
+    urlCache.content = self.fetchData;
+    urlCache.cacheTime = self.cacheTime;
+    [[JKRAPICacheManager sharedManager] setCache:urlCache forKey:self.cacheKey];
+}
+
+- (BOOL)getCache {
+    if (self.cachePolicy == JKRApiCachePolicyIgnoreCache) {
+        return NO;
+    }
+    JKRURLCache *urlCache = [[JKRAPICacheManager sharedManager] getCacheForKey:self.cacheKey];
+    if (urlCache.content) {
+        if (self.cachePolicy == JKRApiCachePolicyLoadCacheIfNotTimeout) {
+            NSInteger nowTime = [JKRAPICacheSerializer sharedSerializer].cacheTime;
+            if (nowTime <= urlCache.cacheTime + [JKRAPIConfiguration sharedConfiguration].cacheOutSeconds) {
+                self.fetchError = nil;
+                self.fetchData = urlCache.content;
+                if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
+                    [self.delegate apiManagerRequestSuccess:self];
+                }
+                return YES;
+            }
+        } else if (self.cachePolicy == JKRApiCachePolicyLoadCacheIfExist) {
+            self.fetchError = nil;
+            self.fetchData = urlCache.content;
+            if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
+                [self.delegate apiManagerRequestSuccess:self];
+            }
+            return YES;
+        } else {
+            if (self.fetchError && self.cachePolicy == JKRApiCachePolicyLoadCacheIfLoadFail) {
+                self.fetchData = urlCache.content;
+                self.fetchError = nil;
+                if ([self.delegate respondsToSelector:@selector(apiManagerRequestSuccess:)]) {
+                    [self.delegate apiManagerRequestSuccess:self];
+                }
+                return YES;
+            }
+        }
+    }
+    return NO;
 }
 
 - (void)loadDataFailedWithResponse:(JKRURLResponse *)response {
@@ -98,6 +156,9 @@
     [self removeRequestWithID:response.requestID];
     self.fetchData = nil;
     self.fetchError = response.error;
+    if ([self getCache]) {
+        return;
+    }
     if (response.error.code == NSURLErrorCancelled && [self.delegate respondsToSelector:@selector(apiManagerRequestCancel:)]) {
         [self.delegate apiManagerRequestCancel:self];
     } else if ([self.delegate respondsToSelector:@selector(apiManagerRequestFailed:)]) {
@@ -169,6 +230,14 @@
         _requestIdList = [NSMutableArray array];
     }
     return _requestIdList;
+}
+
+- (NSString *)cacheKey {
+    return [[JKRAPICacheSerializer sharedSerializer] cacheKeyWithUrlString:[self.child apiUrl] parameters:[self.parametersSource parametersForApiManager:self]];
+}
+
+- (NSInteger)cacheTime {
+    return [JKRAPICacheSerializer sharedSerializer].cacheTime;
 }
 
 @end

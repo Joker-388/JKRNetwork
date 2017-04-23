@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "JKRAPIConfiguration.h"
 #import "JKRAPIManager.h"
+#import "JKRURLCache.h"
 
 @interface JKRAPICacheManager : NSObject
 
-- (BOOL)cacheValueWithManager:(JKRAPIManager *)manager;
-- (id)getValueWithManager:(JKRAPIManager *)manager;
-
-//- (BOOL)cacheValue:(id)value forKey:(NSString *)key type:(JKRApiCacheType)type;
-//- (id)getValueForKey:(NSString *)key type:(JKRApiCacheType)type;
++ (instancetype)sharedManager;
+- (void)setCache:(JKRURLCache *)cache forKey:(NSString *)key;
+- (JKRURLCache *)getCacheForKey:(NSString *)key;
 
 @end
