@@ -20,6 +20,8 @@
 		F30DF96E1EADB910006342D8 /* JKRAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF95F1EADB90F006342D8 /* JKRAPIConfiguration.m */; };
 		F30DF96F1EADB910006342D8 /* JKRAPICacheSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF9631EADB90F006342D8 /* JKRAPICacheSerializer.m */; };
 		F30DF9701EADB910006342D8 /* JKRAPIRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF9651EADB90F006342D8 /* JKRAPIRequestSerializer.m */; };
+		F30DF9BE1EAE0874006342D8 /* JKRUploadAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF9BD1EAE0874006342D8 /* JKRUploadAPI.m */; };
+		F30DF9C01EAE098E006342D8 /* 01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F30DF9BF1EAE098E006342D8 /* 01.jpg */; };
 		F32534C11EA62ECE00852E5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534C01EA62ECE00852E5A /* main.m */; };
 		F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F32534C31EA62ECE00852E5A /* AppDelegate.m */; };
 		F32534CC1EA62ECE00852E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32534CB1EA62ECE00852E5A /* Assets.xcassets */; };
@@ -88,6 +90,9 @@
 		F30DF9631EADB90F006342D8 /* JKRAPICacheSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPICacheSerializer.m; sourceTree = "<group>"; };
 		F30DF9641EADB90F006342D8 /* JKRAPIRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAPIRequestSerializer.h; sourceTree = "<group>"; };
 		F30DF9651EADB90F006342D8 /* JKRAPIRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAPIRequestSerializer.m; sourceTree = "<group>"; };
+		F30DF9BC1EAE0874006342D8 /* JKRUploadAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRUploadAPI.h; sourceTree = "<group>"; };
+		F30DF9BD1EAE0874006342D8 /* JKRUploadAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRUploadAPI.m; sourceTree = "<group>"; };
+		F30DF9BF1EAE098E006342D8 /* 01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 01.jpg; sourceTree = "<group>"; };
 		F32534BC1EA62ECE00852E5A /* JKRBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKRBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32534C01EA62ECE00852E5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F32534C21EA62ECE00852E5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -370,6 +375,9 @@
 				F32BF5221EA860A100D7FCBC /* JKRRegisterAPI.m */,
 				F32BF5241EA8667F00D7FCBC /* JKRUserAPI.h */,
 				F32BF5251EA8667F00D7FCBC /* JKRUserAPI.m */,
+				F30DF9BC1EAE0874006342D8 /* JKRUploadAPI.h */,
+				F30DF9BD1EAE0874006342D8 /* JKRUploadAPI.m */,
+				F30DF9BF1EAE098E006342D8 /* 01.jpg */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -546,6 +554,7 @@
 			files = (
 				F32534CF1EA62ECE00852E5A /* LaunchScreen.storyboard in Resources */,
 				F32534CC1EA62ECE00852E5A /* Assets.xcassets in Resources */,
+				F30DF9C01EAE098E006342D8 /* 01.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30DF9BE1EAE0874006342D8 /* JKRUploadAPI.m in Sources */,
 				F30DF9671EADB910006342D8 /* JKRAPITerminal.m in Sources */,
 				F32535241EA70B5200852E5A /* UIColor+JKRColor.m in Sources */,
 				F30DF9681EADB910006342D8 /* JKRURLResponse.m in Sources */,

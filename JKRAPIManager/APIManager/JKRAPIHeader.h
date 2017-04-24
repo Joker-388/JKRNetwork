@@ -18,7 +18,8 @@ typedef unsigned long JKRRequestID;
  */
 typedef NS_ENUM(NSUInteger, JKRRequestType) {
     JKRRequestTypeGet = 0,      ///< Get请求
-    JKRRequestTypePost          ///< Post请求
+    JKRRequestTypePost,         ///< Post请求
+    JKRRequestTypeUpload        ///< 上传文件
 };
 
 typedef NS_ENUM(NSUInteger, JKRApiCachePolicy) {

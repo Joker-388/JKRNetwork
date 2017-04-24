@@ -37,21 +37,42 @@
     NSURLRequest *request = [[JKRAPIRequestSerializer sharedSerializer] requestWithRequestType:type urlString:URLString parameters:parameters];
     __block NSURLSessionDataTask *dataTask = nil;
     __weak typeof(self)weakSelf = self;
-    dataTask = [self.sessionManager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf requestTableViewRemoveObjectWithIdentifier:dataTask.taskIdentifier];
-        if (error) {
-            NSLog(@"[JKRAPITerminal] request error");
-            JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithError:error];
-            jkr_response.requestID = dataTask.taskIdentifier;
-            failure ? failure(jkr_response):nil;
-        } else {
-            NSLog(@"[JKRAPITerminal] request success");
-            JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithResponse:responseObject];
-            jkr_response.requestID = dataTask.taskIdentifier;
-            success ? success(jkr_response):nil;
-        }
-    }];
+    if (type == JKRRequestTypeUpload) {
+        dataTask = [self.sessionManager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
+            NSLog(@"%f",1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+        } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf requestTableViewRemoveObjectWithIdentifier:dataTask.taskIdentifier];
+            if (error) {
+                NSLog(@"[JKRAPITerminal] request error");
+                JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithError:error];
+                jkr_response.requestID = dataTask.taskIdentifier;
+                failure ? failure(jkr_response):nil;
+            } else {
+                NSLog(@"[JKRAPITerminal] request success");
+                JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithResponse:responseObject];
+                jkr_response.requestID = dataTask.taskIdentifier;
+                success ? success(jkr_response):nil;
+            }
+        }];
+    } else {
+        dataTask = [self.sessionManager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf requestTableViewRemoveObjectWithIdentifier:dataTask.taskIdentifier];
+            if (error) {
+                NSLog(@"[JKRAPITerminal] request error");
+                JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithError:error];
+                jkr_response.requestID = dataTask.taskIdentifier;
+                failure ? failure(jkr_response):nil;
+            } else {
+                NSLog(@"[JKRAPITerminal] request success");
+                JKRURLResponse *jkr_response = [[JKRURLResponse alloc] initWithResponse:responseObject];
+                jkr_response.requestID = dataTask.taskIdentifier;
+                success ? success(jkr_response):nil;
+            }
+        }];
+    }
+    
     [self.requestTable setValue:dataTask forKey:[NSString stringWithFormat:@"%lu", (unsigned long)dataTask.taskIdentifier]];
     [dataTask resume];
     return dataTask.taskIdentifier;

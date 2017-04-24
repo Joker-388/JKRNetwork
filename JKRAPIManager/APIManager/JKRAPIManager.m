@@ -107,7 +107,7 @@
 }
 
 - (void)saveCache {
-    if (self.cachePolicy == JKRApiCachePolicyIgnoreCache) {
+    if (self.cachePolicy == JKRApiCachePolicyIgnoreCache || [self.child apiRequestType] == JKRRequestTypeUpload) {
         return;
     }
     NSLog(@"[JKRAPIManager] save cache");
@@ -118,7 +118,7 @@
 }
 
 - (BOOL)getCache {
-    if (self.cachePolicy == JKRApiCachePolicyIgnoreCache) {
+    if (self.cachePolicy == JKRApiCachePolicyIgnoreCache || [self.child apiRequestType] == JKRRequestTypeUpload) {
         return NO;
     }
     JKRURLCache *urlCache = [[JKRAPICacheManager sharedManager] getCacheForKey:self.cacheKey];

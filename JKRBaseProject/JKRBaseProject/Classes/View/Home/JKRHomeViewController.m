@@ -10,6 +10,7 @@
 #import "JKRRegisterAPI.h"
 #import "JKRLoginAPI.h"
 #import "JKRUserAPI.h"
+#import "JKRUploadAPI.h"
 #import "JKRUserView.h"
 
 @interface JKRHomeViewController ()<JKRAPIManagerCallBackDelegate, JKRAPIManagerParametersSource>
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) JKRLoginAPI *loginAPI;
 @property (nonatomic, strong) JKRRegisterAPI *registerAPI;
 @property (nonatomic, strong) JKRUserAPI *userAPI;
+@property (nonatomic, strong) JKRUploadAPI *uploadAPI;
 
 @property (nonatomic, strong) JKRUserView *userView;
 @property (nonatomic, strong) UITextField *textField;
@@ -61,6 +63,12 @@
     [button4 addTarget:self action:@selector(cleanCache) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button4];
     
+    UIButton *button5 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button5 setTitle:@"Upload Image" forState:UIControlStateNormal];
+    button5.frame = CGRectMake(120, 190, 100, 40);
+    [button5 addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button5];
+    
     UITextField *textField = [[UITextField alloc] init];
     textField.backgroundColor = [UIColor redColor];
     textField.frame = CGRectMake(10, 250, 100, 40);
@@ -94,6 +102,10 @@
     [[JKRAPICacheManager sharedManager] cleanCache];
 }
 
+- (void)upload {
+    [self.uploadAPI loadData];
+}
+
 /// 为api提供请求参数
 - (NSDictionary *)parametersForApiManager:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
@@ -102,6 +114,9 @@
         return @{@"username":self.textField.text, @"password":@"qq123456"};
     } else if (manager == self.userAPI) {
         return @{@"token":self.token ? self.token : @"333", @"category":@"business_card"};
+    } else if (manager == self.uploadAPI) {
+        UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"01" ofType:@"jpg"]];
+        return @{@"token":self.token ? self.token : @"333", @"secure":@"false", @"file":@[image, image, image], @"filename":@"test"};
     }
     return nil;
 }
@@ -119,6 +134,8 @@
         [self.userView configWithData:userViewData];
     } else if (manager == self.userAPI) {
         NSLog(@"Get info Success:%@", [manager fetchOriginalData]);
+    } else if (manager == self.uploadAPI) {
+        NSLog(@"Upload Success:%@", [manager fetchOriginalData]);
     }
 }
 
@@ -130,6 +147,8 @@
         NSLog(@"Login Failed:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
         NSLog(@"Get info Failed:%@", [manager fetchOriginalError]);
+    } else if (manager == self.uploadAPI) {
+        NSLog(@"Upload Failed:%@", [manager fetchOriginalError]);
     }
 }
 
@@ -141,6 +160,8 @@
         NSLog(@"Login ParamaterError:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
         NSLog(@"Get info ParamaterError:%@", [manager fetchOriginalError]);
+    } else if (manager == self.uploadAPI) {
+        NSLog(@"Upload ParamaterError:%@", [manager fetchOriginalError]);
     }
 }
 
@@ -152,6 +173,8 @@
         NSLog(@"Login Cancel:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
         NSLog(@"Get info Cancel:%@", [manager fetchOriginalError]);
+    } else if (manager == self.uploadAPI) {
+        NSLog(@"Upload ParamaterError:%@", [manager fetchOriginalError]);
     }
 }
 
@@ -163,6 +186,8 @@
         NSLog(@"Login TokenInvalid:%@", [manager fetchOriginalError]);
     } else if (manager == self.userAPI) {
         NSLog(@"Get info TokenInvalid:%@", [manager fetchOriginalError]);
+    } else if (manager == self.uploadAPI) {
+        NSLog(@"Upload TokenInvalid:%@", [manager fetchOriginalError]);
     }
 }
 
@@ -195,6 +220,15 @@
         _userAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfNotTimeout;
     }
     return _userAPI;
+}
+
+- (JKRUploadAPI *)uploadAPI {
+    if (!_uploadAPI) {
+        _uploadAPI = [[JKRUploadAPI alloc] init];
+        _uploadAPI.delegate = self;
+        _uploadAPI.parametersSource = self;
+    }
+    return _uploadAPI;
 }
 
 - (void)dealloc {
