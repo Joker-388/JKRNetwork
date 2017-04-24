@@ -39,6 +39,18 @@
     return nil;
 }
 
+- (NSInteger)cacheCost {
+    return self.cache.diskCache.totalCost;
+}
+
+- (void)cleanCache {
+    NSLog(@"[JKRAPICacheManager] begin clean cache: %zd bytes", [JKRAPICacheManager sharedManager].cacheCost);
+    [self.cache.diskCache removeAllObjectsWithBlock:^{
+        NSLog(@"[JKRAPICacheManager] after clean cache: %zd btyes", [JKRAPICacheManager sharedManager].cacheCost);
+    }];
+    [self.cache.memoryCache removeAllObjects];
+}
+
 //- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
 //    id newValue = change[NSKeyValueChangeNewKey];
 //    self.cache.diskCache.costLimit = [newValue integerValue];

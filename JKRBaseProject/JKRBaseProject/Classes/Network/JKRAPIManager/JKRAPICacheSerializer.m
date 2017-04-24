@@ -7,6 +7,8 @@
 //
 
 #import "JKRAPICacheSerializer.h"
+#import "NSDictionary+JKRAPICacheKey.h"
+#import "NSString+JKRAPIMD5.h"
 
 @implementation JKRAPICacheSerializer
 
@@ -29,7 +31,9 @@
 }
 
 - (NSString *)cacheKeyWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters {
-    return urlString;
+    NSString *resuleString = [NSString stringWithFormat:@"%@%@", urlString, [parameters cacheKey]];
+    resuleString = [resuleString jkr_api_mi5key];
+    return resuleString;
 }
 
 @end

@@ -14,6 +14,10 @@
 @interface JKRAPICacheManager : NSObject
 
 + (instancetype)sharedManager;
+/// 获取网络缓存文件大小 bytes
+- (NSInteger)cacheCost;
+/// 清空网络缓存
+- (void)cleanCache;
 - (void)setCache:(JKRURLCache *)cache forKey:(NSString *)key;
 - (JKRURLCache *)getCacheForKey:(NSString *)key;
 

@@ -44,7 +44,8 @@
     [self.view addSubview:button1];
     
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button2 setTitle:@"Change" forState:UIControlStateNormal];
+    [button2 setTitle:@"cacheCost" forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(printCache) forControlEvents:UIControlEventTouchUpInside];
     button2.frame = CGRectMake(10, 190, 100, 40);
     [self.view addSubview:button2];
     
@@ -53,6 +54,12 @@
     button3.frame = CGRectMake(120, 70, 100, 40);
     [button3 addTarget:self action:@selector(getUserInfo) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button3];
+    
+    UIButton *button4 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button4 setTitle:@"Clean Cache" forState:UIControlStateNormal];
+    button4.frame = CGRectMake(120, 130, 100, 40);
+    [button4 addTarget:self action:@selector(cleanCache) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button4];
     
     UITextField *textField = [[UITextField alloc] init];
     textField.backgroundColor = [UIColor redColor];
@@ -76,6 +83,15 @@
 - (void)getUserInfo {
     NSLog(@"***Get User Info");
     [self.userAPI loadData];
+}
+
+- (void)printCache {
+    NSLog(@"%zd bytes", [JKRAPICacheManager sharedManager].cacheCost);
+}
+
+- (void)cleanCache {
+    NSLog(@"befor clean cache: %zd", [JKRAPICacheManager sharedManager].cacheCost);
+    [[JKRAPICacheManager sharedManager] cleanCache];
 }
 
 - (NSDictionary *)parametersForApiManager:(__kindof JKRAPIManager *)manager {
@@ -150,7 +166,7 @@
         _loginAPI.parametersSource = self;
         _loginAPI.delegate = self;
         _loginAPI.cancelLoadWhenResend = YES;
-        _loginAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfNotTimeout;
+        _loginAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfExist;
     }
     return _loginAPI;
 }
@@ -160,7 +176,7 @@
         _registerAPI = [[JKRRegisterAPI alloc] init];
         _registerAPI.delegate = self;
         _registerAPI.parametersSource = self;
-        _registerAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfNotTimeout;
+//        _registerAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfNotTimeout;
     }
     return _registerAPI;
 }
@@ -170,7 +186,7 @@
         _userAPI = [[JKRUserAPI alloc] init];
         _userAPI.delegate = self;
         _userAPI.parametersSource = self;
-        _userAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfExist;
+        _userAPI.cachePolicy = JKRApiCachePolicyLoadCacheIfNotTimeout;
     }
     return _userAPI;
 }
