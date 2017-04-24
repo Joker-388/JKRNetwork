@@ -94,6 +94,7 @@
     [[JKRAPICacheManager sharedManager] cleanCache];
 }
 
+/// 为api提供请求参数
 - (NSDictionary *)parametersForApiManager:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
         return @{@"username":self.textField.text, @"password":@"qq123456", @"user_type":@"consumer"};
@@ -105,6 +106,7 @@
     return nil;
 }
 
+/// api请求成功
 - (void)apiManagerRequestSuccess:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
         NSLog(@"Register Success:%@", [manager fetchOriginalData]);
@@ -120,6 +122,7 @@
     }
 }
 
+/// api请求失败
 - (void)apiManagerRequestFailed:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
         NSLog(@"Register Failed:%@", [manager fetchOriginalError]);
@@ -130,6 +133,7 @@
     }
 }
 
+/// api请求参数错误
 - (void)apiManagerRequestParametersError:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
         NSLog(@"Register ParamaterError:%@", [manager fetchOriginalError]);
@@ -140,6 +144,7 @@
     }
 }
 
+/// api请求被取消
 - (void)apiManagerRequestCancel:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
         NSLog(@"Register Cancel:%@", [manager fetchOriginalError]);
@@ -150,6 +155,7 @@
     }
 }
 
+/// api请求token过期
 - (void)apiManagerRequestTokenInvalid:(__kindof JKRAPIManager *)manager {
     if (manager == self.registerAPI) {
         NSLog(@"Register TokenInvalid:%@", [manager fetchOriginalError]);
