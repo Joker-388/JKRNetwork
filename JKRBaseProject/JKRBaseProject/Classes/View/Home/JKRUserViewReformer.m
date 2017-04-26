@@ -7,6 +7,7 @@
 //
 
 #import "JKRUserViewReformer.h"
+#import "JKRUserModel.h"
 
 NSString *const kUserKeyName = @"kUserKeyName";
 NSString *const kUserKeyToken = @"kUserKeyToken";
@@ -14,14 +15,25 @@ NSString *const kUserGender = @"kUserGender";
 
 @implementation JKRUserViewReformer
 
-- (NSMutableDictionary *)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data {
+/**
+- (id)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data {
     NSDictionary *resultData = nil;
     resultData = @{
-                   kUserKeyName:data[@"data"][@"username"] ? data[@"data"][@"username"] : @"未登录",
-                   kUserKeyToken:data[@"data"][@"token"] ? data[@"data"][@"token"] : @"未登录",
-                   kUserGender:data[@"data"][@"token"] ? ([data[@"data"][@"gender"] integerValue] ? @"男" : @"女") : @"未登录"
+                   kUserKeyName:data[@"data"][@"username"],
+                   kUserKeyToken:data[@"data"][@"token"],
+                   kUserGender:[data[@"data"][@"gender"] integerValue] ? @"男" : @"女"
                    };
     return [resultData mutableCopy];
+}
+ */
+
+
+- (id)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data {
+    JKRUserModel *model = [[JKRUserModel alloc] init];
+    model.name = data[@"data"][@"username"];
+    model.token = data[@"data"][@"token"];
+    model.sex = [data[@"data"][@"gender"] integerValue] ? @"男" : @"女";
+    return model;
 }
 
 - (void)dealloc {

@@ -35,6 +35,13 @@
     self.genderLabel.text = data[kUserGender];
 }
 
+- (void)setModel:(JKRUserModel *)model {
+    _model = model;
+    self.nameLabel.text = model.name;
+    self.tokenLabel.text = model.token;
+    self.genderLabel.text = model.sex;
+}
+
 - (JKRUserViewReformer *)userReformer {
     if (!_userReformer) {
         _userReformer = [[JKRUserViewReformer alloc] init];

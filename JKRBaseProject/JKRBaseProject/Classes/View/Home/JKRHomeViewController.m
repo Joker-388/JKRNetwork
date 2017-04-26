@@ -12,6 +12,7 @@
 #import "JKRUserAPI.h"
 #import "JKRUploadAPI.h"
 #import "JKRUserView.h"
+#import "JKRUserModel.h"
 
 @interface JKRHomeViewController ()<JKRAPIManagerCallBackDelegate, JKRAPIManagerParametersSource>
 
@@ -130,8 +131,10 @@
         if (![manager.fetchOriginalData[@"data"] isKindOfClass:[NSNull class]]) {
             self.token = manager.fetchOriginalData[@"data"][@"token"] ? manager.fetchOriginalData[@"data"][@"token"] : @"";
         }
-        NSMutableDictionary *userViewData = [manager fetchDataWithReformer:self.userView.userReformer];
-        [self.userView configWithData:userViewData];
+//        NSMutableDictionary *userViewData = [manager fetchDataWithReformer:self.userView.userReformer];
+//        [self.userView configWithData:userViewData];
+        JKRUserModel *model = [manager fetchDataWithReformer:self.userView.userReformer];
+        self.userView.model = model;
     } else if (manager == self.userAPI) {
         NSLog(@"Get info Success:%@", [manager fetchOriginalData]);
     } else if (manager == self.uploadAPI) {

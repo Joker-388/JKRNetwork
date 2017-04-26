@@ -218,7 +218,7 @@
     return [_fetchData mutableCopy];
 }
 
-- (NSMutableDictionary *)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer {
+- (id)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer {
     id resultData = nil;
     if ([reformer respondsToSelector:@selector(fetchDataWithManager:reformData:)]) {
         resultData = [reformer fetchDataWithManager:self reformData:self.fetchData];

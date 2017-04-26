@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054AA9151EB0D6C70045E80E /* JKRUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 054AA9141EB0D6C70045E80E /* JKRUserModel.m */; };
 		D8991E5064766142D8BC88C1 /* libPods-JKRBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */; };
 		F30DF8F31EADB35E006342D8 /* JKRMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF8F21EADB35E006342D8 /* JKRMD5.m */; };
 		F30DF9661EADB910006342D8 /* JKRAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF94A1EADB90F006342D8 /* JKRAPIManager.m */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054AA9131EB0D6C70045E80E /* JKRUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRUserModel.h; sourceTree = "<group>"; };
+		054AA9141EB0D6C70045E80E /* JKRUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRUserModel.m; sourceTree = "<group>"; };
 		10406D853B61B89AE93625BC /* Pods-JKRBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKRBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C477A275E635DC370847DF /* Pods-JKRBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				F32BF57D1EA8B82600D7FCBC /* JKRUserViewReformerKeys.h */,
 				F32BF57A1EA8B80C00D7FCBC /* JKRUserViewReformer.h */,
 				F32BF57B1EA8B80C00D7FCBC /* JKRUserViewReformer.m */,
+				054AA9131EB0D6C70045E80E /* JKRUserModel.h */,
+				054AA9141EB0D6C70045E80E /* JKRUserModel.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				F32535241EA70B5200852E5A /* UIColor+JKRColor.m in Sources */,
 				F30DF9681EADB910006342D8 /* JKRURLResponse.m in Sources */,
 				F32BF5261EA8667F00D7FCBC /* JKRUserAPI.m in Sources */,
+				054AA9151EB0D6C70045E80E /* JKRUserModel.m in Sources */,
 				F32535201EA705FD00852E5A /* JKRMeViewController.m in Sources */,
 				F32534C41EA62ECE00852E5A /* AppDelegate.m in Sources */,
 				F30DF8F31EADB35E006342D8 /* JKRMD5.m in Sources */,

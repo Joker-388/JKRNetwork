@@ -117,7 +117,7 @@
 @protocol JKRAPIManagerDataReformer <NSObject>
 
 /// 加工APIManager的数据为便于使用的特征数据
-- (NSMutableDictionary *)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data;
+- (id)fetchDataWithManager:(__kindof JKRAPIManager *)manager reformData:(NSDictionary *)data;
 
 @end
 
@@ -140,7 +140,7 @@
 /// 获取请求原始数据
 - (NSMutableDictionary *)fetchOriginalData;
 /// 获取通过加工条件改良过的数据
-- (NSMutableDictionary *)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer;
+- (id)fetchDataWithReformer:(id<JKRAPIManagerDataReformer>)reformer;
 /// 获取请求原始错误信息
 - (NSError *)fetchOriginalError;
 
