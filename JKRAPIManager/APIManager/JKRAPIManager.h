@@ -51,6 +51,8 @@
  */
 /// 检查token是否过期,该回调是在接收到响应数据后回调
 - (BOOL)apiIsTokenInvalidAfterResponse:(NSDictionary *)parameters;
+/// 是否监听网络状态
+- (BOOL)apiIsReachability;
 
 @end
 
@@ -94,6 +96,12 @@
  */
 /// 用户token过期
 - (void)apiManagerRequestTokenInvalid:(__kindof JKRAPIManager *)manager;
+/// 没有连接网络，请求网络前、网络状态从联网状态改为非联网状态调用
+- (void)apiManagerNotConnectNetwork:(__kindof JKRAPIManager *)manager;
+/// 网络连接状态改变调用
+- (void)apiManagerConnectNetwork:(__kindof JKRAPIManager *)manager reachabilityStatus:(JKRReachabilityStatus)status;
+/// 连接网络后调用
+- (void)apiManager:(__kindof JKRAPIManager *)manager changeReachabilityStatus:(JKRReachabilityStatus)status;
 
 @end
 

@@ -34,6 +34,10 @@
     return YES;
 }
 
+- (BOOL)apiIsReachability {
+    return YES;
+}
+
 - (void)dealloc {
     NSLog(@"JKRLoginAPI dealloc");
 }

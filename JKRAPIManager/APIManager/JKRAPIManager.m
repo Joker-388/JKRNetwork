@@ -24,6 +24,8 @@
 
 @implementation JKRAPIManager
 
+JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
+
 - (instancetype)init {
     self = [super init];
     _delegate = nil;
@@ -31,6 +33,11 @@
     if ([self conformsToProtocol:@protocol(JKRAPIManagerProtocol)]) {
         self.child = (id<JKRAPIManagerProtocol>)self;
         self.cancelLoadWhenResend = YES;
+        if ([self.child respondsToSelector:@selector(apiIsReachability)]) {
+            if ([self.child apiIsReachability]) {
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachiabilityStatusChange:) name:JKR_REACHABILITY_NOTIFICATION_KEY object:nil];
+            }
+        }
     } else {
         NSAssert(NO, @"JKRAPIManager的子类必须实现名为JKRAPIManagerProtocol的这个Protocol并实现相关方法");
     }
@@ -38,6 +45,11 @@
 }
 
 - (JKRRequestID)loadData {
+    if ([self.child respondsToSelector:@selector(apiIsReachability)]) {
+        if ([self.child apiIsReachability] && [JKRAPIConfiguration sharedConfiguration].reachabilityStatus == JKRReachabilityStatusNotReachable && [self.delegate respondsToSelector:@selector(apiManagerNotConnectNetwork:)]) {
+            [self.delegate apiManagerNotConnectNetwork:self];
+        }
+    }
     NSDictionary *parameters = [self.parametersSource parametersForApiManager:self];
     JKRRequestType requestType = [self.child apiRequestType];
     JKRRequestID requestID = 0;
@@ -212,6 +224,38 @@
     }
     self.isLoading = YES;
     return YES;
+}
+
+- (void)reachiabilityStatusChange:(NSNotification *)notification {
+    JKRReachabilityStatus status = [notification.userInfo[JKR_REACHABILITY_NOTIFICATION_KEY] unsignedIntegerValue];
+    if ([self.delegate respondsToSelector:@selector(apiManager:changeReachabilityStatus:)]) {
+        [self.delegate apiManager:self changeReachabilityStatus:status];
+    }
+    switch (status) {
+        case JKRReachabilityStatusUnknow:
+            NSLog(@"JKRReachabilityStatusUnknow");
+            break;
+        case JKRReachabilityStatusNotReachable:
+            if ([self.delegate respondsToSelector:@selector(apiManagerNotConnectNetwork:)]) {
+                [self.delegate apiManagerNotConnectNetwork:self];
+            }
+            NSLog(@"JKRReachabilityStatusNotReachable");
+            break;
+        case JKRReachabilityStatusViaWWAN:
+            if ([self.delegate respondsToSelector:@selector(apiManagerConnectNetwork:reachabilityStatus:)]) {
+                [self.delegate apiManagerConnectNetwork:self reachabilityStatus:JKRReachabilityStatusViaWWAN];
+            }
+            NSLog(@"JKRReachabilityStatusViaWWAN");
+            break;
+        case JKRReachabilityStatusViaWiFi:
+            if ([self.delegate respondsToSelector:@selector(apiManagerConnectNetwork:reachabilityStatus:)]) {
+                [self.delegate apiManagerConnectNetwork:self reachabilityStatus:JKRReachabilityStatusViaWiFi];
+            }
+            NSLog(@"JKRReachabilityStatusViaWiFi");
+            break;
+        default:
+            break;
+    }
 }
 
 - (NSMutableDictionary *)fetchOriginalData {

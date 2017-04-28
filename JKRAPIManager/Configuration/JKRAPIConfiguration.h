@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSTimeInterval cacheOutSeconds;     ///< 缓存失效时间,默认30秒
 @property (nonatomic, assign) NSInteger cacheCountLimit;          ///< 最大缓存数,默认100个
 @property (nonatomic, strong) NSURL *baseURL;                     ///< 所有API的baseURL
+@property (nonatomic, assign) JKRReachabilityStatus reachabilityStatus;
 
 + (instancetype)sharedConfiguration;
 

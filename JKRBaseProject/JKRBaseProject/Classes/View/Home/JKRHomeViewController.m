@@ -194,6 +194,28 @@
     }
 }
 
+- (void)apiManagerNotConnectNetwork:(__kindof JKRAPIManager *)manager {
+    if (manager == self.loginAPI) {
+        NSLog(@"Login not connect network");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not connect network" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+- (void)apiManager:(__kindof JKRAPIManager *)manager changeReachabilityStatus:(JKRReachabilityStatus)status {
+    if (manager == self.loginAPI) {
+        NSLog(@"Login change reachability");
+    }
+}
+
+- (void)apiManagerConnectNetwork:(__kindof JKRAPIManager *)manager reachabilityStatus:(JKRReachabilityStatus)status {
+    if (manager == self.loginAPI) {
+        NSLog(@"Login connect network %lu", (unsigned long)status);
+        [self.loginAPI loadData];
+        [self.userAPI loadData];
+    }
+}
+
 - (JKRLoginAPI *)loginAPI {
     if (!_loginAPI) {
         _loginAPI = [[JKRLoginAPI alloc] init];
