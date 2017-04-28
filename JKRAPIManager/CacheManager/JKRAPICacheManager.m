@@ -22,7 +22,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[JKRAPICacheManager alloc] init];
-//        [[JKRAPIConfiguration sharedConfiguration] addObserver:sharedInstance forKeyPath:@"cacheCountLimit" options:NSKeyValueObservingOptionNew context:nil];
     });
     return sharedInstance;
 }
@@ -50,17 +49,6 @@
     }];
     [self.cache.memoryCache removeAllObjects];
 }
-
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-//    id newValue = change[NSKeyValueChangeNewKey];
-//    self.cache.diskCache.costLimit = [newValue integerValue];
-//    self.cache.memoryCache.costLimit = [newValue integerValue];
-//    NSLog(@"%@", newValue);
-//}
-//
-//- (void)dealloc {
-//    [[JKRAPIConfiguration sharedConfiguration] removeObserver:self forKeyPath:@"cacheCountLimit"];
-//}
 
 - (JKRCache *)cache {
     if (!_cache) {

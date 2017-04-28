@@ -17,15 +17,16 @@
 @property (nonatomic, strong, readwrite) NSError *fetchError;
 @property (nonatomic, strong) NSMutableArray<NSString *> *requestIdList;
 @property (nonatomic, assign, readwrite) BOOL isLoading;
-@property (nonatomic, strong) NSString *cacheKey;
-@property (nonatomic, assign) NSInteger cacheTime;
 
 @end
 
 @implementation JKRAPIManager
 
+#define kCurrentTimeString [JKRAPICacheSerializer sharedSerializer].cacheTime
+#define kCurrentCacheKey [[JKRAPICacheSerializer sharedSerializer] cacheKeyWithUrlString:[self.child apiUrl] parameters:[self.parametersSource parametersForApiManager:self]]
 JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
 
+#pragma mark - initialize
 - (instancetype)init {
     self = [super init];
     _delegate = nil;
@@ -44,6 +45,7 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     return self;
 }
 
+#pragma mark - core method
 - (JKRRequestID)loadData {
     if ([self.child respondsToSelector:@selector(apiIsReachability)]) {
         if ([self.child apiIsReachability] && [JKRAPIConfiguration sharedConfiguration].reachabilityStatus == JKRReachabilityStatusNotReachable && [self.delegate respondsToSelector:@selector(apiManagerNotConnectNetwork:)]) {
@@ -69,6 +71,7 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     [self.requestIdList removeAllObjects];
 }
 
+#pragma mark - request
 - (JKRRequestID)sendAPIWithParameters:(NSDictionary *)parameters type:(JKRRequestType)type{
     self.fetchError = nil;
     self.fetchData = nil;
@@ -91,6 +94,7 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     return requestID;
 }
 
+#pragma mark - response
 - (void)loadDataSuccessWithResponse:(JKRURLResponse *)response {
     self.isLoading = NO;
     [self removeRequestWithID:response.requestID];
@@ -118,6 +122,23 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     }
 }
 
+- (void)loadDataFailedWithResponse:(JKRURLResponse *)response {
+    self.isLoading = NO;
+    [self removeRequestWithID:response.requestID];
+    self.fetchData = nil;
+    self.fetchError = response.error;
+    if ([self getCache]) {
+        return;
+    }
+    if (response.error.code == NSURLErrorCancelled && [self.delegate respondsToSelector:@selector(apiManagerRequestCancel:)]) {
+        [self.delegate apiManagerRequestCancel:self];
+        return;
+    } else if ([self.delegate respondsToSelector:@selector(apiManagerRequestFailed:)]) {
+        [self.delegate apiManagerRequestFailed:self];
+    }
+}
+
+#pragma mark - cache
 - (void)saveCache {
     if (self.cachePolicy == JKRApiCachePolicyIgnoreCache || [self.child apiRequestType] == JKRRequestTypeUpload) {
         return;
@@ -125,18 +146,18 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     NSLog(@"[JKRAPIManager] save cache");
     JKRURLCache *urlCache = [[JKRURLCache alloc] init];
     urlCache.content = self.fetchData;
-    urlCache.cacheTime = self.cacheTime;
-    [[JKRAPICacheManager sharedManager] setCache:urlCache forKey:self.cacheKey];
+    urlCache.cacheTime = kCurrentTimeString;
+    [[JKRAPICacheManager sharedManager] setCache:urlCache forKey:kCurrentCacheKey];
 }
 
 - (BOOL)getCache {
     if (self.cachePolicy == JKRApiCachePolicyIgnoreCache || [self.child apiRequestType] == JKRRequestTypeUpload) {
         return NO;
     }
-    JKRURLCache *urlCache = [[JKRAPICacheManager sharedManager] getCacheForKey:self.cacheKey];
+    JKRURLCache *urlCache = [[JKRAPICacheManager sharedManager] getCacheForKey:kCurrentCacheKey];
     if (urlCache.content) {
         if (self.cachePolicy == JKRApiCachePolicyLoadCacheIfNotTimeout) {
-            NSInteger nowTime = [JKRAPICacheSerializer sharedSerializer].cacheTime;
+            NSInteger nowTime = kCurrentTimeString;
             if (nowTime <= urlCache.cacheTime + [JKRAPIConfiguration sharedConfiguration].cacheOutSeconds) {
                 self.fetchError = nil;
                 self.fetchData = urlCache.content;
@@ -169,22 +190,36 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     return NO;
 }
 
-- (void)loadDataFailedWithResponse:(JKRURLResponse *)response {
-    self.isLoading = NO;
-    [self removeRequestWithID:response.requestID];
-    self.fetchData = nil;
-    self.fetchError = response.error;
-    if ([self getCache]) {
-        return;
+#pragma mark - reachiability
+- (void)reachiabilityStatusChange:(NSNotification *)notification {
+    JKRReachabilityStatus status = [notification.userInfo[JKR_REACHABILITY_NOTIFICATION_KEY] unsignedIntegerValue];
+    if ([self.delegate respondsToSelector:@selector(apiManager:changeReachabilityStatus:)]) {
+        [self.delegate apiManager:self changeReachabilityStatus:status];
     }
-    if (response.error.code == NSURLErrorCancelled && [self.delegate respondsToSelector:@selector(apiManagerRequestCancel:)]) {
-        [self.delegate apiManagerRequestCancel:self];
-        return;
-    } else if ([self.delegate respondsToSelector:@selector(apiManagerRequestFailed:)]) {
-        [self.delegate apiManagerRequestFailed:self];
+    switch (status) {
+        case JKRReachabilityStatusUnknow:
+            break;
+        case JKRReachabilityStatusNotReachable:
+            if ([self.delegate respondsToSelector:@selector(apiManagerNotConnectNetwork:)]) {
+                [self.delegate apiManagerNotConnectNetwork:self];
+            }
+            break;
+        case JKRReachabilityStatusViaWWAN:
+            if ([self.delegate respondsToSelector:@selector(apiManagerConnectNetwork:reachabilityStatus:)]) {
+                [self.delegate apiManagerConnectNetwork:self reachabilityStatus:JKRReachabilityStatusViaWWAN];
+            }
+            break;
+        case JKRReachabilityStatusViaWiFi:
+            if ([self.delegate respondsToSelector:@selector(apiManagerConnectNetwork:reachabilityStatus:)]) {
+                [self.delegate apiManagerConnectNetwork:self reachabilityStatus:JKRReachabilityStatusViaWiFi];
+            }
+            break;
+        default:
+            break;
     }
 }
 
+#pragma mark - private method
 - (void)removeRequestWithID:(JKRRequestID)requestID {
     NSString *removeObject = nil;
     for (NSString *obj in self.requestIdList) {
@@ -226,38 +261,7 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     return YES;
 }
 
-- (void)reachiabilityStatusChange:(NSNotification *)notification {
-    JKRReachabilityStatus status = [notification.userInfo[JKR_REACHABILITY_NOTIFICATION_KEY] unsignedIntegerValue];
-    if ([self.delegate respondsToSelector:@selector(apiManager:changeReachabilityStatus:)]) {
-        [self.delegate apiManager:self changeReachabilityStatus:status];
-    }
-    switch (status) {
-        case JKRReachabilityStatusUnknow:
-            NSLog(@"JKRReachabilityStatusUnknow");
-            break;
-        case JKRReachabilityStatusNotReachable:
-            if ([self.delegate respondsToSelector:@selector(apiManagerNotConnectNetwork:)]) {
-                [self.delegate apiManagerNotConnectNetwork:self];
-            }
-            NSLog(@"JKRReachabilityStatusNotReachable");
-            break;
-        case JKRReachabilityStatusViaWWAN:
-            if ([self.delegate respondsToSelector:@selector(apiManagerConnectNetwork:reachabilityStatus:)]) {
-                [self.delegate apiManagerConnectNetwork:self reachabilityStatus:JKRReachabilityStatusViaWWAN];
-            }
-            NSLog(@"JKRReachabilityStatusViaWWAN");
-            break;
-        case JKRReachabilityStatusViaWiFi:
-            if ([self.delegate respondsToSelector:@selector(apiManagerConnectNetwork:reachabilityStatus:)]) {
-                [self.delegate apiManagerConnectNetwork:self reachabilityStatus:JKRReachabilityStatusViaWiFi];
-            }
-            NSLog(@"JKRReachabilityStatusViaWiFi");
-            break;
-        default:
-            break;
-    }
-}
-
+#pragma mark - get data
 - (NSMutableDictionary *)fetchOriginalData {
     return [_fetchData mutableCopy];
 }
@@ -276,19 +280,12 @@ JKRNetwork_EXTERN NSString *const JKR_REACHABILITY_NOTIFICATION_KEY;
     return _fetchError;
 }
 
+#pragma mark - lazy load
 - (NSMutableArray<NSString *> *)requestIdList {
     if (!_requestIdList) {
         _requestIdList = [NSMutableArray array];
     }
     return _requestIdList;
-}
-
-- (NSString *)cacheKey {
-    return [[JKRAPICacheSerializer sharedSerializer] cacheKeyWithUrlString:[self.child apiUrl] parameters:[self.parametersSource parametersForApiManager:self]];
-}
-
-- (NSInteger)cacheTime {
-    return [JKRAPICacheSerializer sharedSerializer].cacheTime;
 }
 
 @end

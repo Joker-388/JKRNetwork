@@ -19,7 +19,6 @@ typedef unsigned long JKRRequestID;
 
 /**
  待添加:
- JKRRequestTypeUpload,      ///< 上传请求
  JKRRequestTypeDownload     ///< 下载请求
  */
 typedef NS_ENUM(NSUInteger, JKRRequestType) {

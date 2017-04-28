@@ -17,6 +17,7 @@
 
 @implementation JKRAPITerminal
 
+#pragma mark - initialize
 + (instancetype)sharedTerminal {
     static JKRAPITerminal *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -26,13 +27,14 @@
     return sharedInstance;
 }
 
+#pragma mark - cancel request
 - (void)cancelRequestWithRequestID:(JKRRequestID)requestID {
     NSURLSessionDataTask *task = self.requestTable[[NSString stringWithFormat:@"%lu", requestID]];
     [task cancel];
     [self requestTableViewRemoveObjectWithIdentifier:requestID];
 }
 
-/// 底层网络请求
+#pragma mark - send request
 - (JKRRequestID)sendAPIWithURLString:(NSString *)URLString type:(JKRRequestType)type parameters:(NSDictionary *)parameters success:(JKRAPICallBack)success failure:(JKRAPICallBack)failure {
     NSURLRequest *request = [[JKRAPIRequestSerializer sharedSerializer] requestWithRequestType:type urlString:URLString parameters:parameters];
     __block NSURLSessionDataTask *dataTask = nil;
@@ -78,10 +80,12 @@
     return dataTask.taskIdentifier;
 }
 
+#pragma mark - private method
 - (void)requestTableViewRemoveObjectWithIdentifier:(JKRRequestID)requestID {
     [self.requestTable removeObjectForKey:[NSString stringWithFormat:@"%lu", requestID]];
 }
 
+#pragma mark - lazy load
 - (AFHTTPSessionManager *)sessionManager {
     if (!_sessionManager) {
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
