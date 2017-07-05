@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053148361EE9259C0098C534 /* NSString+JKRMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 053148351EE9259C0098C534 /* NSString+JKRMD5.m */; };
 		054AA9151EB0D6C70045E80E /* JKRUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 054AA9141EB0D6C70045E80E /* JKRUserModel.m */; };
 		D8991E5064766142D8BC88C1 /* libPods-JKRBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E767BBAFED732E0AEF660F9 /* libPods-JKRBaseProject.a */; };
 		F30DF8F31EADB35E006342D8 /* JKRMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DF8F21EADB35E006342D8 /* JKRMD5.m */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053148341EE9259C0098C534 /* NSString+JKRMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKRMD5.h"; sourceTree = "<group>"; };
+		053148351EE9259C0098C534 /* NSString+JKRMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKRMD5.m"; sourceTree = "<group>"; };
 		054AA9131EB0D6C70045E80E /* JKRUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRUserModel.h; sourceTree = "<group>"; };
 		054AA9141EB0D6C70045E80E /* JKRUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRUserModel.m; sourceTree = "<group>"; };
 		10406D853B61B89AE93625BC /* Pods-JKRBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRBaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKRBaseProject/Pods-JKRBaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				F32535161EA705C600852E5A /* UITabBarController+JKRChildViewController.m */,
 				F30DF8F11EADB35E006342D8 /* JKRMD5.h */,
 				F30DF8F21EADB35E006342D8 /* JKRMD5.m */,
+				053148341EE9259C0098C534 /* NSString+JKRMD5.h */,
+				053148351EE9259C0098C534 /* NSString+JKRMD5.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				F30DF96B1EADB910006342D8 /* JKRCache.m in Sources */,
 				F325350E1EA7054800852E5A /* AppDelegate+JKRRootViewController.m in Sources */,
 				F32BF5791EA8B5AB00D7FCBC /* JKRUserView.m in Sources */,
+				053148361EE9259C0098C534 /* NSString+JKRMD5.m in Sources */,
 				F32BF5811EA8C75C00D7FCBC /* JKRRootViewController.m in Sources */,
 				F32535171EA705C600852E5A /* UITabBarController+JKRChildViewController.m in Sources */,
 				F30DF9691EADB910006342D8 /* JKRAPICacheManager.m in Sources */,
